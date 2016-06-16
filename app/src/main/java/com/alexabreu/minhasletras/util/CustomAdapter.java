@@ -6,56 +6,56 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import com.alexabreu.minhasletras.R;
 import com.alexabreu.minhasletras.model.Letra;
 
+import java.util.ArrayList;
+
 /**
  * Created by Tan on 3/14/2016.
  */
 
-public class CustomAdapter extends CursorAdapter {
+public class CustomAdapter extends ArrayAdapter<Letra> {
 
     private LayoutInflater mInflater;
+    private Context context;
+    private ArrayList<Letra> letras;
 
-    public CustomAdapter(Context context, Cursor c, int flags) {
-        super(context, c, flags);
-        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    private TextView id_musica;
+    private TextView nome_musica;
+    private TextView cantor_musica;
+
+    public CustomAdapter(Context context, ArrayList<Letra> lista) {
+        super(context, 0, lista);
+        this.context = context;
+        this.letras = lista;
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        View   view    =    mInflater.inflate(R.layout.item, parent, false);
-        ViewHolder holder  =   new ViewHolder();
-        holder.txtId    =   (TextView)  view.findViewById(R.id.txtId);
-        holder.txtNome    =   (TextView)  view.findViewById(R.id.txtNomeMusica);
-        holder.txtCantor   =   (TextView)  view.findViewById(R.id.txtNomeCantor);
-        view.setTag(holder);
-        return view;
-    }
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Letra letraPosicao = this.letras.get(position);
+        convertView = LayoutInflater.from(this.context).inflate(R.layout.item, null);
 
-    @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        //If you want to have zebra lines color effect uncomment below code
-        if(cursor.getPosition()%2==1) {
-             view.setBackgroundResource(R.drawable.item_list_backgroundcolor);
-        } else {
-            view.setBackgroundResource(R.drawable.item_list_backgroundcolor2);
+        id_musica = (TextView)convertView.findViewById(R.id.txtId);
+        id_musica.setText(letraPosicao.getId_musica().toString());
+
+        nome_musica = (TextView)convertView.findViewById(R.id.txtNomeMusica);
+        nome_musica.setText(letraPosicao.getLetra_musica());
+
+        cantor_musica = (TextView)convertView.findViewById(R.id.txtCantorMusica);
+        cantor_musica.setText(letraPosicao.getCantor_musica());
+
+        if(position %2==1){
+            convertView.setBackgroundResource(R.drawable.item_list_backgroundcolor);
+        }
+        else {
+            convertView.setBackgroundResource(R.drawable.item_list_backgroundcolor2);
         }
 
-        ViewHolder holder  =   (ViewHolder)    view.getTag();
-        holder.txtId.setText(cursor.getString(cursor.getColumnIndex(Letra.KEY_ID)));
-        holder.txtNome.setText(cursor.getString(cursor.getColumnIndex(Letra.KEY_nome)));
-        holder.txtCantor.setText(cursor.getString(cursor.getColumnIndex(Letra.KEY_cantor)));
+        return convertView;
     }
-
-    static class ViewHolder {
-        TextView txtId;
-        TextView txtNome;
-        TextView txtCantor;
-    }
-
-
 }

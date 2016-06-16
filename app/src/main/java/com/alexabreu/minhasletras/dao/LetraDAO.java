@@ -57,8 +57,8 @@ public class LetraDAO {
         db.close();;
     }
 
-    public List<Letra> listarTodos() {
-        List<Letra> letras = new ArrayList<Letra>();
+    public ArrayList<Letra> listarTodos() {
+        ArrayList<Letra> letras = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.query(nome_tabela, null, null, null, null, null, "nome_musica ASC");
 

@@ -52,7 +52,7 @@ public class Search extends AppCompatActivity {
         btnPesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               resultadoEscolha();
+               //resultadoEscolha();
             }
         });
 
@@ -70,7 +70,7 @@ public class Search extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void resultadoEscolha(){
+   /* public void resultadoEscolha(){
 
         if(edtPesquisar.length()== 0){
             AlertDialog.Builder mensagem = new AlertDialog.Builder(Search.this);
@@ -116,6 +116,6 @@ public class Search extends AppCompatActivity {
                     break;
             }
         }
-    }
+    }*/
 
 }

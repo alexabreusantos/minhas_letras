@@ -30,23 +30,22 @@ import com.alexabreu.minhasletras.util.CustomAdapter;
 import com.alexabreu.minhasletras.util.InserirLetra;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
-    Cursor cursor;
-    Cursor getCursor;
-    LetraDAO dao;
+    private ListView listView;
+    private Long id_musica;
+    private String nome_musica;
+    private String nome_cantor;
+    private String letra_musica;
+    private String nomes_musica;
 
-    Long id_musica;
-    String nome_musica;
-    String nome_cantor;
-    String letra_musica;
-    String nomes_musica;
+    private LetraDAO dao;
 
     int count = 0;
     int numero = 0;
-    ArrayList<Letra> letras = new ArrayList<Letra>();
+    private ArrayList<Letra> listarTodos = new ArrayList<Letra>();
 
     private CustomAdapter customAdapter;
     private Letra letra_selecionada = null;
@@ -56,16 +55,48 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher);
 
-    }
+        dao = new LetraDAO(this);
+        listarTodos = dao.listarTodos();
+        customAdapter = new CustomAdapter(this,listarTodos);
 
+        listView = (ListView)findViewById(R.id.lstLetra);
+        listView.setAdapter(customAdapter);
+
+    }
 
     @Override
     public void onResume(){
         super.onResume();
        // atualizarLista();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case R.id.id_search:
+                finish();
+                return true;
+
+            case R.id.id_adicionar:
+                Intent intent = new Intent(this, AddLetra.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

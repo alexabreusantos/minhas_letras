@@ -75,10 +75,10 @@ public class AddLetra extends AppCompatActivity {
 
         try{
             letra.setNome_musica(nome_musica.getText().toString());
-            letra.setNome_cantor(nome_cantor.getText().toString());
+            letra.setCantor_musica(nome_cantor.getText().toString());
             letra.setLetra_musica(letra_musica.getText().toString());
 
-            letraDAO.insert(letra);
+            letraDAO.inserir(letra);
             Toast.makeText(this, "Salvo com Sucesso", Toast.LENGTH_SHORT).show();
             finish();
 
