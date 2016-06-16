@@ -11,7 +11,6 @@ import com.alexabreu.minhasletras.model.Letra;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Created by alexd on 08/06/2016.
  */
@@ -79,21 +78,70 @@ public class LetraDAO {
         return letras;
     }
 
-    public Cursor getLetraListByNome(String search) {
+    public List<Letra> buscarPorNomeMusica(String search) {
         //Open connection to read only
+        List<Letra> letras = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selectQuery =  "SELECT nome_musica, cantor_musica FROM " + nome_tabela + " WHERE nome_musica LIKE '%" +search + "%' ";
-        
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        // looping through all rows and adding to list
-
-        if (cursor == null) {
-            return null;
-        } else if (!cursor.moveToFirst()) {
-            cursor.close();
-            return null;
+        Cursor c = db.rawQuery(selectQuery, null);
+        try {
+            while (c.moveToNext()){
+                Letra letra = new Letra();
+                letra.setId_musica(c.getLong(c.getColumnIndex("_id_musica")));
+                letra.setNome_musica(c.getString(c.getColumnIndex("nome_musica")));
+                letra.setCantor_musica(c.getString(c.getColumnIndex("cantor_musica")));
+                letra.setLetra_musica(c.getString(c.getColumnIndex("letra_musica")));
+                letras.add(letra);
+            }
+        }finally {
+            c.close();
         }
-        return cursor;
+        db.close();
+        return letras;
+    }
+
+    public List<Letra> buscarPorCantorMusica(String search) {
+        //Open connection to read only
+        List<Letra> letras = new ArrayList<Letra>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT nome_musica, cantor_musica FROM " + nome_tabela + " WHERE cantor_musica LIKE '%" +search + "%' ";
+        Cursor c = db.rawQuery(selectQuery, null);
+        try {
+            while (c.moveToNext()){
+                Letra letra = new Letra();
+                letra.setId_musica(c.getLong(c.getColumnIndex("_id_musica")));
+                letra.setNome_musica(c.getString(c.getColumnIndex("nome_musica")));
+                letra.setCantor_musica(c.getString(c.getColumnIndex("cantor_musica")));
+                letra.setLetra_musica(c.getString(c.getColumnIndex("letra_musica")));
+                letras.add(letra);
+            }
+        }finally {
+            c.close();
+        }
+        db.close();
+        return letras;
+    }
+
+    public List<Letra> buscarPorLetraMusica(String search) {
+        //Open connection to read only
+        List<Letra> letras = new ArrayList<Letra>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT nome_musica, cantor_musica FROM " + nome_tabela + " WHERE letra_musica LIKE '%" +search + "%' ";
+        Cursor c = db.rawQuery(selectQuery, null);
+        try {
+            while (c.moveToNext()){
+                Letra letra = new Letra();
+                letra.setId_musica(c.getLong(c.getColumnIndex("_id_musica")));
+                letra.setNome_musica(c.getString(c.getColumnIndex("nome_musica")));
+                letra.setCantor_musica(c.getString(c.getColumnIndex("cantor_musica")));
+                letra.setLetra_musica(c.getString(c.getColumnIndex("letra_musica")));
+                letras.add(letra);
+            }
+        }finally {
+            c.close();
+        }
+        db.close();
+        return letras;
     }
 
     public String obterNomeMusica(Letra letra){

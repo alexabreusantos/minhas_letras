@@ -61,15 +61,22 @@
       <file leaf-file-name="LetraDAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/dao/LetraDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48758864">
-              <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.63829786">
+              <caret line="124" column="59" selection-start-line="124" selection-start-column="59" selection-end-line="124" selection-end-column="59" />
               <folding>
                 <element signature="method#inserir#0;class#LetraDAO#0" expanded="false" />
                 <element signature="method#atualizar#0;class#LetraDAO#0" expanded="false" />
                 <element signature="method#remover#0;class#LetraDAO#0" expanded="false" />
-                <element signature="e#2007#2014#0" expanded="true" />
-                <element signature="e#3397#3398#0" expanded="true" />
-                <element signature="e#3442#3443#0" expanded="true" />
+                <element signature="method#listarTodos#0;class#LetraDAO#0" expanded="false" />
+                <element signature="e#2006#2013#0" expanded="true" />
+                <element signature="method#buscarPorNomeMusica#0;class#LetraDAO#0" expanded="false" />
+                <element signature="e#2891#2898#0" expanded="true" />
+                <element signature="method#buscarPorCantorMusica#0;class#LetraDAO#0" expanded="false" />
+                <element signature="e#3871#3878#0" expanded="true" />
+                <element signature="method#buscarPorLetraMusica#0;class#LetraDAO#0" expanded="false" />
+                <element signature="e#4852#4859#0" expanded="true" />
+                <element signature="e#5736#5737#0" expanded="true" />
+                <element signature="e#5781#5782#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2160,15 +2167,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/dao/LetraDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48758864">
-          <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.63829786">
+          <caret line="124" column="59" selection-start-line="124" selection-start-column="59" selection-end-line="124" selection-end-column="59" />
           <folding>
             <element signature="method#inserir#0;class#LetraDAO#0" expanded="false" />
             <element signature="method#atualizar#0;class#LetraDAO#0" expanded="false" />
             <element signature="method#remover#0;class#LetraDAO#0" expanded="false" />
-            <element signature="e#2007#2014#0" expanded="true" />
-            <element signature="e#3397#3398#0" expanded="true" />
-            <element signature="e#3442#3443#0" expanded="true" />
+            <element signature="method#listarTodos#0;class#LetraDAO#0" expanded="false" />
+            <element signature="e#2006#2013#0" expanded="true" />
+            <element signature="method#buscarPorNomeMusica#0;class#LetraDAO#0" expanded="false" />
+            <element signature="e#2891#2898#0" expanded="true" />
+            <element signature="method#buscarPorCantorMusica#0;class#LetraDAO#0" expanded="false" />
+            <element signature="e#3871#3878#0" expanded="true" />
+            <element signature="method#buscarPorLetraMusica#0;class#LetraDAO#0" expanded="false" />
+            <element signature="e#4852#4859#0" expanded="true" />
+            <element signature="e#5736#5737#0" expanded="true" />
+            <element signature="e#5781#5782#0" expanded="true" />
           </folding>
         </state>
       </provider>
