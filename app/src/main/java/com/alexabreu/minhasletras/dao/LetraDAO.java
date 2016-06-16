@@ -16,9 +16,11 @@ public class LetraDAO {
 
     private DBHelper dbHelper;
     private static final String TAG = "cadastro_letra";
+    private Context context;
 
     public LetraDAO(Context context) {
         dbHelper = new DBHelper(context);
+        this.context = context;
     }
 
     public int insert(Letra letra) {
@@ -26,7 +28,7 @@ public class LetraDAO {
         //Open connection to write data
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Letra.KEY_nome, letra.getNome_musica());
+        values.put("nome_musica", letra.getNome_musica());
         values.put(Letra.KEY_cantor,letra.getNome_cantor());
         values.put(Letra.KEY_letra, letra.getLetra_musica());
 

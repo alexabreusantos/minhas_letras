@@ -7,28 +7,19 @@ import java.io.Serializable;
  */
 public class Letra  implements Serializable{
 
-    // Labels table name
-    public static final String TABLE = "Letra";
+    private static final long serialVersionUID = 1L;
 
-    // Labels Table Columns names
-    public static final String KEY_ROWID = "_id";
-    public static final String KEY_ID = "id";
-    public static final String KEY_nome = "nome_musica";
-    public static final String KEY_cantor = "nome_cantor";
-    public static final String KEY_letra = "letra_musica";
-
-    // property help us to keep data
-    private Long letra_ID;
+    private Long id_musica;
     private String nome_musica;
-    private String nome_cantor;
+    private String cantor_musica;
     private String letra_musica;
 
-    public Long getLetra_ID() {
-        return letra_ID;
+    public Long getId_musica() {
+        return id_musica;
     }
 
-    public void setLetra_ID(Long letra_ID) {
-        this.letra_ID = letra_ID;
+    public void setId_musica(Long id_musica) {
+        this.id_musica = id_musica;
     }
 
     public String getNome_musica() {
@@ -39,12 +30,12 @@ public class Letra  implements Serializable{
         this.nome_musica = nome_musica;
     }
 
-    public String getNome_cantor() {
-        return nome_cantor;
+    public String getCantor_musica() {
+        return cantor_musica;
     }
 
-    public void setNome_cantor(String nome_cantor) {
-        this.nome_cantor = nome_cantor;
+    public void setCantor_musica(String cantor_musica) {
+        this.cantor_musica = cantor_musica;
     }
 
     public String getLetra_musica() {
