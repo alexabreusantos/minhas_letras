@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.alexabreu.minhasletras.dao.LetraDAO;
+import com.alexabreu.minhasletras.diversas_letras.FernandaBrum;
 import com.alexabreu.minhasletras.model.Letra;
 import com.alexabreu.minhasletras.util.CustomAdapter;
 import com.alexabreu.minhasletras.util.InserirLetra;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     private LetraDAO dao;
 
+    ProgressDialog barProgressDialog;
+    Handler updateBarHandler;
     int count = 0;
     int numero = 0;
     private ArrayList<Letra> listarTodos = new ArrayList<Letra>();
@@ -61,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
         dao = new LetraDAO(this);
         listarTodos = dao.listarTodos();
-        customAdapter = new CustomAdapter(this,listarTodos);
+        if(listarTodos.isEmpty()){
+            adicionarLetra();
+        }
 
+        customAdapter = new CustomAdapter(this,listarTodos);
         listView = (ListView)findViewById(R.id.lstLetra);
         listView.setAdapter(customAdapter);
 
@@ -98,5 +104,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    private void adicionarLetra(){
+        InserirLetra inserirLetra = new InserirLetra(this);
+        inserirLetra.addLetra();
+    }
 }

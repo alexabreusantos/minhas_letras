@@ -44,7 +44,7 @@ public class CustomAdapter extends ArrayAdapter<Letra> {
         id_musica.setText(letraPosicao.getId_musica().toString());
 
         nome_musica = (TextView)convertView.findViewById(R.id.txtNomeMusica);
-        nome_musica.setText(letraPosicao.getLetra_musica());
+        nome_musica.setText(letraPosicao.getNome_musica());
 
         cantor_musica = (TextView)convertView.findViewById(R.id.txtCantorMusica);
         cantor_musica.setText(letraPosicao.getCantor_musica());
