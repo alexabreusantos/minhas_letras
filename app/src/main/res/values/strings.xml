@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Minhas Letras</string>
+
+    <string name="search_hint">Pesquisar Letras</string>
+    <string name="nome_musica_hint">Nome da Música</string>
+    <string name="nome_cantor_hint">Nome do Cantor</string>
+    <string name="letra_musica_hint">Letra da Música</string>
+    <string name="digita_busca_hint">Digite sua busca aqui...</string>
+
+    <string name="menu_add">Adicionar</string>
+    <string name="menu_favorite">Favoritos</string>
+    <string name="menu_save">Salvar</string>
+    <string name="menu_edit">Editar</string>
+    <string name="menu_delete">Excluir</string>
+
+    <string name="textview_musica">Título</string>
+    <string name="textview_cantor">Artista</string>
+    <string name="textview_letra">Música</string>
+
+    <string name="radio_nome_musica">Por nome da Música</string>
+    <string name="radio_nome_cantor">Por nome do Cantor</string>
+    <string name="radio_trecho_musica">Por algum trecho da letra</string>
+    <string name="title_activity_resultado_busca">ResultadoBusca</string>
+
+</resources>
+

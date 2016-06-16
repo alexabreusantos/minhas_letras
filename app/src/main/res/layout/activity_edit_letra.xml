@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.letras.alexabreusantos.appletras.ActivityAddLetra">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_nome_musica_id">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textview_musica"
+            android:id="@+id/tv_nome_musica"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/abc_font_12sp"
+            android:layout_marginLeft="@dimen/abc_margin_left_3sp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:ems="10"
+            android:id="@+id/edt_nome_musica"
+            android:hint="@string/nome_musica_hint"
+            android:layout_below="@id/tv_nome_musica"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/abc_font_14sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_nome_cantor_id"
+        android:layout_below="@+id/rl_nome_musica_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textview_cantor"
+            android:id="@+id/tv_nome_cantor"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/abc_font_12sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/abc_margin_left_3sp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:ems="10"
+            android:id="@+id/edt_nome_cantor"
+            android:hint="@string/nome_cantor_hint"
+            android:layout_below="@+id/tv_nome_cantor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/abc_font_14sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_letra_musica_id"
+        android:layout_below="@+id/rl_nome_cantor_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textview_letra"
+            android:id="@+id/tv_letra_musica"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/abc_font_12sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/abc_margin_left_3sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine|textCapSentences"
+            android:ems="10"
+            android:id="@+id/edt_letra_musica"
+            android:hint="@string/letra_musica_hint"
+            android:layout_below="@+id/tv_letra_musica"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/abc_font_14sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
