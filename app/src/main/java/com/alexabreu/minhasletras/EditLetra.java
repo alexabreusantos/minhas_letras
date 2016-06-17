@@ -20,17 +20,16 @@ import java.util.ArrayList;
 
 public class EditLetra extends AppCompatActivity {
 
-    EditText nome_musica;
-    EditText nome_cantor;
-    EditText letra_musica;
+    private EditText nome_musica;
+    private EditText nome_cantor;
+    private EditText letra_musica;
 
-    Long id;
-    String nome;
-    String cantor;
-    String letra;
+    private Long musica_id;
+    private String musica_nome;
+    private String musica_cantor;
+    private String musica_letra;
+    private Letra letra;
 
-    Cursor cursor;
-    LetraDAO dao;
 
     private final static String TAG = MainActivity.class.getName().toString();
 
@@ -42,6 +41,21 @@ public class EditLetra extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        nome_musica = (EditText)findViewById(R.id.edt_nome_musica);
+        nome_cantor = (EditText)findViewById(R.id.edt_nome_cantor);
+        letra_musica = (EditText)findViewById(R.id.edt_letra_musica);
+
+        letra = (Letra)getIntent().getSerializableExtra("itemSelecionadoParaEdicao");
+        musica_id = letra.getId_musica();
+        musica_nome = letra.getNome_musica();
+        musica_cantor = letra.getCantor_musica();
+        musica_letra = letra.getLetra_musica();
+
+        if(musica_id != null){
+            nome_musica.setText(musica_nome);
+            nome_cantor.setText(musica_cantor);
+            letra_musica.setText(musica_letra);
+        }
     }
 
     @Override
@@ -61,10 +75,22 @@ public class EditLetra extends AppCompatActivity {
                 return true;
 
             case R.id.id_edit:
-                //edit();
+                editar();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void editar(){
+        LetraDAO dao = new LetraDAO(this);
+        try{
+            boolean isUpdate = dao.atualizar(musica_id.toString(),nome_musica.getText().toString(), nome_cantor.getText().toString(), letra_musica.getText().toString());
+            Toast.makeText(this, "Editado com Sucesso", Toast.LENGTH_SHORT).show();
+            finish();
+        }catch (Exception ex){
+            Log.i(TAG, "Erro", ex);
+            Toast.makeText(this, "Erro ao Editar", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

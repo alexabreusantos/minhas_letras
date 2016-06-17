@@ -18,17 +18,9 @@ import com.alexabreu.minhasletras.model.Letra;
 
 public class AddLetra extends AppCompatActivity {
 
-    EditText nome_musica;
-    EditText nome_cantor;
-    EditText letra_musica;
-
-    Long id;
-    String nome;
-    String cantor;
-    String letra;
-
-    Cursor cursor;
-    LetraDAO dao;
+    private EditText nome_musica;
+    private EditText nome_cantor;
+    private EditText letra_musica;
 
     private final static String TAG = MainActivity.class.getName().toString();
 
@@ -43,7 +35,6 @@ public class AddLetra extends AppCompatActivity {
         nome_musica = (EditText)findViewById(R.id.edt_nome_musica);
         nome_cantor = (EditText)findViewById(R.id.edt_nome_cantor);
         letra_musica = (EditText)findViewById(R.id.edt_letra_musica);
-
     }
 
     @Override
@@ -51,7 +42,6 @@ public class AddLetra extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_add_letra, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
@@ -63,13 +53,14 @@ public class AddLetra extends AppCompatActivity {
                 return true;
 
             case R.id.id_save:
-                save();
+                salvar();
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void save(){
+    private void salvar(){
         Letra letra = new Letra();
         LetraDAO letraDAO = new LetraDAO(this);
 
@@ -86,6 +77,5 @@ public class AddLetra extends AppCompatActivity {
             Log.i(TAG, "Erro", ex);
             Toast.makeText(this, "Erro ao Salvar", Toast.LENGTH_SHORT).show();
         }
-
     }
 }

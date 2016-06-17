@@ -12,7 +12,7 @@ public class FernandaBrum {
 
     public static String cantorFernandaBrum = "Fernanda Brum";
     public static String nomeEspiritoSanto = "Espírito Santo";
-    public static String letraEspiritoSanto = "Espírito Santo ore por mim, \n " +
+    public static String letraEspiritoSanto = "Espírito Santo ore por mim, \n" +
             "Leve pra Deus tudo aquilo que eu preciso. \n"+
             "Espírito Santo use as palavras que eu necessito usar, \n"+
             "Mas não consigo. \n"+

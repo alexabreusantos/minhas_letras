@@ -1,40 +1,27 @@
 package com.alexabreu.minhasletras;
 
-import android.annotation.TargetApi;
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.ActionMode;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.alexabreu.minhasletras.dao.LetraDAO;
-import com.alexabreu.minhasletras.diversas_letras.FernandaBrum;
 import com.alexabreu.minhasletras.model.Letra;
 import com.alexabreu.minhasletras.util.CustomAdapter;
 import com.alexabreu.minhasletras.util.InserirLetra;
-import com.alexabreu.minhasletras.util.ListaLetrasListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private String letra_musica;
     private String nomes_musica;
     private Cursor cursor;
+    private Letra letra;
 
     private LetraDAO dao;
 
@@ -89,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
                 count = count + 1;
-                Letra letra = (Letra) listView.getItemAtPosition(position);
+                letra = (Letra) listView.getItemAtPosition(position);
 
                 id_musica = letra.getId_musica();
                 nome_musica = letra.getNome_musica();
@@ -153,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         carregarLista();
-        listView.setOnItemClickListener(new ListaLetrasListener(this));
     }
 
     @Override
@@ -233,12 +220,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void editarLetra() {
-        Intent form = new Intent(MainActivity.this, AddLetra.class);
-        form.putExtra("ID_SELECIONADO", id_musica);
-        form.putExtra("NOME_SELECIONADO", nome_musica);
-        form.putExtra("CANTOR_SELECIONADO", cantor_musica);
-        form.putExtra("LETRA_SELECIONADA", letra_musica);
-        startActivity(form);
+        Intent i = new Intent(this, EditLetra.class);
+        i.putExtra("itemSelecionadoParaEdicao",letra);
+        this.startActivity(i);
     }
 
     private void confirmarExcluir(){

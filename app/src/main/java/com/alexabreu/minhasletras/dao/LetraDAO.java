@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.alexabreu.minhasletras.helper.DBHelper;
 import com.alexabreu.minhasletras.model.Letra;
@@ -40,23 +41,18 @@ public class LetraDAO {
         db.close(); // Closing database connection
     }
 
-    public void atualizar(Letra letra){
+    public boolean atualizar(String id, String nome, String cantor, String letra){
         ContentValues values = new ContentValues();
-        values.put("nome_musica", letra.getNome_musica());
-        values.put("cantor_musica",letra.getCantor_musica());
-        values.put("letra_musica", letra.getLetra_musica());
+        values.put("_id_musica", id);
+        values.put("nome_musica", nome);
+        values.put("cantor_musica",cantor);
+        values.put("letra_musica", letra);
+
         SQLiteDatabase db =  dbHelper.getWritableDatabase();
-        db.update(nome_tabela, values, "_id_musica=?", new String[]{letra.getId_musica().toString()});
+        db.update(nome_tabela, values, "_id_musica=?", new String[]{id});
         db.close();
 
-    }
-
-    public void salvar(Letra letra){
-        if(letra.getId_musica() == null){
-            inserir(letra);
-        }else{
-            atualizar(letra);
-        }
+        return true;
     }
 
     public int remover(Long id){
