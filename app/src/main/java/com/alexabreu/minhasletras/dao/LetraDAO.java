@@ -40,21 +40,30 @@ public class LetraDAO {
         db.close(); // Closing database connection
     }
 
-   public void atualizar(Letra letra){
-       ContentValues values = new ContentValues();
-       values.put("nome_musica", letra.getNome_musica());
-       values.put("cantor_musica",letra.getCantor_musica());
-       values.put("letra_musica", letra.getLetra_musica());
-       SQLiteDatabase db =  dbHelper.getWritableDatabase();
-       db.update(nome_tabela, values, "_id_musica=?", new String[]{letra.getId_musica().toString()});
-       db.close();
+    public void atualizar(Letra letra){
+        ContentValues values = new ContentValues();
+        values.put("nome_musica", letra.getNome_musica());
+        values.put("cantor_musica",letra.getCantor_musica());
+        values.put("letra_musica", letra.getLetra_musica());
+        SQLiteDatabase db =  dbHelper.getWritableDatabase();
+        db.update(nome_tabela, values, "_id_musica=?", new String[]{letra.getId_musica().toString()});
+        db.close();
 
-   }
+    }
 
-    public void remover(Letra letra){
+    public void salvar(Letra letra){
+        if(letra.getId_musica() == null){
+            inserir(letra);
+        }else{
+            atualizar(letra);
+        }
+    }
+
+    public int remover(Long id){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete(nome_tabela, "_id_musica=?", new String[]{letra.getId_musica().toString()});
-        db.close();;
+        int valor_id = db.delete(nome_tabela, "_id_musica=?", new String[]{ String.valueOf(id) });
+        db.close();
+        return valor_id;
     }
 
     public ArrayList<Letra> listarTodos() {
@@ -147,4 +156,7 @@ public class LetraDAO {
     public String obterNomeMusica(Letra letra){
         return letra.getNome_musica();
     }
+
+
+
 }
