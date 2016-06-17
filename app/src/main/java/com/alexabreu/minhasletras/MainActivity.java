@@ -31,6 +31,7 @@ import com.alexabreu.minhasletras.diversas_letras.FernandaBrum;
 import com.alexabreu.minhasletras.model.Letra;
 import com.alexabreu.minhasletras.util.CustomAdapter;
 import com.alexabreu.minhasletras.util.InserirLetra;
+import com.alexabreu.minhasletras.util.ListaLetrasListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,25 +83,6 @@ public class MainActivity extends AppCompatActivity {
         customAdapter = new CustomAdapter(this,listarTodos);
         listView = (ListView)findViewById(R.id.lstLetra);
         listView.setAdapter(customAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get the cursor, positioned to the corresponding row in the result set
-                Letra letra = (Letra) listView.getItemAtPosition(position);
-                // Get the state's capital from this row in the database.
-                id_musica = letra.getId_musica();
-                nome_musica = letra.getNome_musica();
-                cantor_musica = letra.getCantor_musica();
-                letra_musica = letra.getLetra_musica();
-
-                Intent form = new Intent(MainActivity.this, ShowLetra.class);
-                form.putExtra("ID_SELECIONADO", id_musica);
-                form.putExtra("NOME_SELECIONADO", nome_musica);
-                form.putExtra("CANTOR_SELECIONADO", cantor_musica);
-                form.putExtra("LETRA_SELECIONADA", letra_musica);
-                startActivity(form);
-            }
-        });
 
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
@@ -171,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         carregarLista();
+        listView.setOnItemClickListener(new ListaLetrasListener(this));
     }
 
     @Override
@@ -303,6 +286,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ListView getListaLetras() {
-        return listaLetras;
+        return listView;
     }
 }

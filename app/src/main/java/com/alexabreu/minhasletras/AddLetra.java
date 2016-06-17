@@ -40,7 +40,6 @@ public class AddLetra extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-
         nome_musica = (EditText)findViewById(R.id.edt_nome_musica);
         nome_cantor = (EditText)findViewById(R.id.edt_nome_cantor);
         letra_musica = (EditText)findViewById(R.id.edt_letra_musica);
@@ -71,11 +70,7 @@ public class AddLetra extends AppCompatActivity {
     }
 
     private void save(){
-        if(){
-
-        }
-
-
+        Letra letra = new Letra();
         LetraDAO letraDAO = new LetraDAO(this);
 
         try{
