@@ -10,6 +10,8 @@ import com.alexabreu.minhasletras.diversas_letras.FernandaBrum;
 import com.alexabreu.minhasletras.diversas_letras.Fernandinho;
 import com.alexabreu.minhasletras.model.Letra;
 
+import java.util.ArrayList;
+
 /**
  * Created by alexd on 08/06/2016.
  */
@@ -21,79 +23,83 @@ public class InserirLetra extends AppCompatActivity {
         dao = new LetraDAO(context);
     }
 
-    public void addLetra(){
+    public ArrayList<Letra> addLetra(){
+
+        ArrayList<Letra> letras = new ArrayList<Letra>();
         Letra letra= new Letra();
-       try{
-           letra.setNome_musica(FernandaBrum.nomeEspiritoSanto);
-           letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
-           letra.setLetra_musica(FernandaBrum.letraEspiritoSanto);
-           dao.inserir(letra);
 
-           letra.setNome_musica(FernandaBrum.nomeImpossivel);
-           letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
-           letra.setLetra_musica(FernandaBrum.letraImpossivel);
-           dao.inserir(letra);
+           try{
+               letra.setNome_musica(FernandaBrum.nomeEspiritoSanto);
+               letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+               letra.setLetra_musica(FernandaBrum.letraEspiritoSanto);
+               dao.inserir(letra);
 
-           letra.setNome_musica(FernandaBrum.nomeApenasUmToque);
-           letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
-           letra.setLetra_musica(FernandaBrum.letraApenasUmToque);
-           dao.inserir(letra);
+               letra.setNome_musica(FernandaBrum.nomeImpossivel);
+               letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+               letra.setLetra_musica(FernandaBrum.letraImpossivel);
+               dao.inserir(letra);
 
-           letra.setNome_musica(AlineBarros.nomeCorpoFamilia);
-           letra.setCantor_musica(AlineBarros.cantorAlineBarros);
-           letra.setLetra_musica(AlineBarros.letraCorpoFamilia);
-           dao.inserir(letra);
+               letra.setNome_musica(FernandaBrum.nomeApenasUmToque);
+               letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+               letra.setLetra_musica(FernandaBrum.letraApenasUmToque);
+               dao.inserir(letra);
 
-           letra.setNome_musica(AlineBarros.nomeRendidoEstou);
-           letra.setCantor_musica(AlineBarros.cantorAlineBarros);
-           letra.setLetra_musica(AlineBarros.letraRendidoEstou);
-           dao.inserir(letra);
+               letra.setNome_musica(AlineBarros.nomeCorpoFamilia);
+               letra.setCantor_musica(AlineBarros.cantorAlineBarros);
+               letra.setLetra_musica(AlineBarros.letraCorpoFamilia);
+               dao.inserir(letra);
 
-           letra.setNome_musica(AlineBarros.nomeRessuscitaMe);
-           letra.setCantor_musica(AlineBarros.cantorAlineBarros);
-           letra.setLetra_musica(AlineBarros.letraRessuscitaMe);
-           dao.inserir(letra);
+               letra.setNome_musica(AlineBarros.nomeRendidoEstou);
+               letra.setCantor_musica(AlineBarros.cantorAlineBarros);
+               letra.setLetra_musica(AlineBarros.letraRendidoEstou);
+               dao.inserir(letra);
 
-           letra.setNome_musica(Fernandinho.nomeFazChover);
-           letra.setCantor_musica(Fernandinho.cantorFernandinho);
-           letra.setLetra_musica(Fernandinho.letraFazChover);
-           dao.inserir(letra);
+               letra.setNome_musica(AlineBarros.nomeRessuscitaMe);
+               letra.setCantor_musica(AlineBarros.cantorAlineBarros);
+               letra.setLetra_musica(AlineBarros.letraRessuscitaMe);
+               dao.inserir(letra);
 
-           letra.setNome_musica(Fernandinho.nomeTeusSonhos);
-           letra.setCantor_musica(Fernandinho.cantorFernandinho);
-           letra.setLetra_musica(Fernandinho.letraTeusSonhos);
-           dao.inserir(letra);
+               letra.setNome_musica(Fernandinho.nomeFazChover);
+               letra.setCantor_musica(Fernandinho.cantorFernandinho);
+               letra.setLetra_musica(Fernandinho.letraFazChover);
+               dao.inserir(letra);
 
-           letra.setNome_musica(DianteTrono.nomeAclame);
-           letra.setCantor_musica(DianteTrono.cantorDianteTrono);
-           letra.setLetra_musica(DianteTrono.letraAclame);
-           dao.inserir(letra);
+               letra.setNome_musica(Fernandinho.nomeTeusSonhos);
+               letra.setCantor_musica(Fernandinho.cantorFernandinho);
+               letra.setLetra_musica(Fernandinho.letraTeusSonhos);
+               dao.inserir(letra);
 
-           letra.setNome_musica(DianteTrono.nomeAguasPurificadoras);
-           letra.setCantor_musica(DianteTrono.cantorDianteTrono);
-           letra.setLetra_musica(DianteTrono.letraAguasPurificadoras);
-           dao.inserir(letra);
+               letra.setNome_musica(DianteTrono.nomeAclame);
+               letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+               letra.setLetra_musica(DianteTrono.letraAclame);
+               dao.inserir(letra);
 
-           letra.setNome_musica(DianteTrono.nomePrecisoTi);
-           letra.setCantor_musica(DianteTrono.cantorDianteTrono);
-           letra.setLetra_musica(DianteTrono.letraPrecisoTi);
-           dao.inserir(letra);
+               letra.setNome_musica(DianteTrono.nomeAguasPurificadoras);
+               letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+               letra.setLetra_musica(DianteTrono.letraAguasPurificadoras);
+               dao.inserir(letra);
 
-           letra.setNome_musica(DianteTrono.nomeTeAgradeco);
-           letra.setCantor_musica(DianteTrono.cantorDianteTrono);
-           letra.setLetra_musica(DianteTrono.letraTeAgradeco);
-           dao.inserir(letra);
+               letra.setNome_musica(DianteTrono.nomePrecisoTi);
+               letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+               letra.setLetra_musica(DianteTrono.letraPrecisoTi);
+               letras.add(letra);
 
-           letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
-           letra.setCantor_musica(DianteTrono.cantorDianteTrono);
-           letra.setLetra_musica(DianteTrono.letraVimParaAdorar);
-           dao.inserir(letra);
+               letra.setNome_musica(DianteTrono.nomeTeAgradeco);
+               letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+               letra.setLetra_musica(DianteTrono.letraTeAgradeco);
+               letras.add(letra);
 
-       }catch (Exception ex){
-           ex.getMessage();
-       }
+               letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
+               letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+               letra.setLetra_musica(DianteTrono.letraVimParaAdorar);
+               letras.add(letra);
+               dao.inserir(letra);
 
 
+           }catch (Exception ex){
+               ex.getMessage();
+           }
+            return letras;
     }
 
 }

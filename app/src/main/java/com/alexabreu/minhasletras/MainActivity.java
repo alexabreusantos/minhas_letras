@@ -1,6 +1,7 @@
 package com.alexabreu.minhasletras;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +10,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -41,14 +43,17 @@ public class MainActivity extends AppCompatActivity {
     private String nome_cantor;
     private String letra_musica;
     private String nomes_musica;
+    private Cursor cursor;
 
     private LetraDAO dao;
 
     ProgressDialog barProgressDialog;
     Handler updateBarHandler;
-    int count = 0;
-    int numero = 0;
+
+    int tamanho_lista = 0;
     private ArrayList<Letra> listarTodos = new ArrayList<Letra>();
+    private ArrayList<Letra> addLetras = new ArrayList<Letra>();
+    InserirLetra inserirLetra = new InserirLetra(this);
 
     private CustomAdapter customAdapter;
     private Letra letra_selecionada = null;
@@ -62,11 +67,17 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_launcher);
 
+        updateBarHandler = new Handler();
+
         dao = new LetraDAO(this);
         listarTodos = dao.listarTodos();
+
         if(listarTodos.isEmpty()){
             adicionarLetra();
+
         }
+
+        Log.i(TAG, "Tamanho da lista: " + inserirLetra.addLetra().size());
 
         customAdapter = new CustomAdapter(this,listarTodos);
         listView = (ListView)findViewById(R.id.lstLetra);
@@ -77,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-       // atualizarLista();
+        carregarLista();
+
     }
 
     @Override
@@ -85,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.options_menu, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
@@ -105,7 +116,56 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void adicionarLetra(){
-        InserirLetra inserirLetra = new InserirLetra(this);
         inserirLetra.addLetra();
+        ProgressBar();
+    }
+
+    public void ProgressBar() {
+        barProgressDialog = new ProgressDialog(MainActivity.this);
+
+        barProgressDialog.setTitle("Atualizando os dados...");
+        barProgressDialog.setMessage("Atualização em progresso...");
+        barProgressDialog.setProgressStyle(barProgressDialog.STYLE_HORIZONTAL);
+        barProgressDialog.setProgress(0);
+        barProgressDialog.setMax(listarTodos.size());
+        barProgressDialog.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    // Here you should write your time consuming task...
+                    while (barProgressDialog.getProgress() <= barProgressDialog.getMax()) {
+
+                        Thread.sleep(1500);
+
+                        updateBarHandler.post(new Runnable() {
+
+                            public void run() {
+
+                                barProgressDialog.incrementProgressBy(2);
+
+                            }
+
+                        });
+
+                        if (barProgressDialog.getProgress() == barProgressDialog.getMax()) {
+
+                            barProgressDialog.dismiss();
+                        }
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }).start();
+    }
+
+    public void carregarLista(){
+        LetraDAO letraDAO = new LetraDAO(this);
+        this.listarTodos = letraDAO.listarTodos();
+        this.customAdapter = new CustomAdapter(this, listarTodos);
+        this.listView.setAdapter(customAdapter);
+
     }
 }
