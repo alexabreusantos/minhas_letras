@@ -153,14 +153,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
             case R.id.id_search:
-                finish();
+                Intent search = new Intent(this, Search.class);
+                startActivity(search);
                 return true;
 
             case R.id.id_adicionar:
-                Intent intent = new Intent(this, AddLetra.class);
-                startActivity(intent);
+                Intent add = new Intent(this, AddLetra.class);
+                startActivity(add);
                 break;
         }
         return super.onOptionsItemSelected(item);

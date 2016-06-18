@@ -57,7 +57,7 @@ public class LetraDAO {
 
     public int remover(Long id){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        int valor_id = db.delete(nome_tabela, "_id_musica=?", new String[]{ String.valueOf(id) });
+        int valor_id = db.delete(nome_tabela, "_id_musica=?", new String[]{String.valueOf(id)});
         db.close();
         return valor_id;
     }
@@ -83,11 +83,10 @@ public class LetraDAO {
         return letras;
     }
 
-    public List<Letra> buscarPorNomeMusica(String search) {
-        //Open connection to read only
-        List<Letra> letras = new ArrayList<Letra>();
+    public ArrayList<Letra> buscarPorNomeMusica(String search) {
+        ArrayList<Letra> letras = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String selectQuery =  "SELECT nome_musica, cantor_musica FROM " + nome_tabela + " WHERE nome_musica LIKE '%" +search + "%' ";
+        String selectQuery =  "SELECT * FROM letras WHERE nome_musica LIKE '%" +search + "%' ";
         Cursor c = db.rawQuery(selectQuery, null);
         try {
             while (c.moveToNext()){
@@ -105,11 +104,27 @@ public class LetraDAO {
         return letras;
     }
 
-    public List<Letra> buscarPorCantorMusica(String search) {
+    public Cursor getLetraListByNome(String search) {
         //Open connection to read only
-        List<Letra> letras = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String selectQuery =  "SELECT nome_musica, cantor_musica FROM " + nome_tabela + " WHERE cantor_musica LIKE '%" +search + "%' ";
+        String selectQuery =  "SELECT * FROM letras WHERE nome_musica LIKE '%" +search + "%' ";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+
+        if (cursor == null) {
+            return null;
+        } else if (!cursor.moveToFirst()) {
+            cursor.close();
+            return null;
+        }
+        return cursor;
+    }
+
+    public ArrayList<Letra> buscarPorCantorMusica(String search) {
+        //Open connection to read only
+        ArrayList<Letra> letras = new ArrayList<Letra>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT * FROM " + nome_tabela + " WHERE cantor_musica LIKE '%" +search + "%' ";
         Cursor c = db.rawQuery(selectQuery, null);
         try {
             while (c.moveToNext()){
@@ -127,9 +142,9 @@ public class LetraDAO {
         return letras;
     }
 
-    public List<Letra> buscarPorLetraMusica(String search) {
+    public ArrayList<Letra> buscarPorLetraMusica(String search) {
         //Open connection to read only
-        List<Letra> letras = new ArrayList<Letra>();
+        ArrayList<Letra> letras = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selectQuery =  "SELECT nome_musica, cantor_musica FROM " + nome_tabela + " WHERE letra_musica LIKE '%" +search + "%' ";
         Cursor c = db.rawQuery(selectQuery, null);

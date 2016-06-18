@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,13 +26,16 @@ import java.util.List;
 
 public class Search extends AppCompatActivity {
 
-    Button btnPesquisar;
-    EditText edtPesquisar;
-    RadioGroup rgOpcao;
+    private Button btnPesquisar;
+    private EditText edtPesquisar;
+    private RadioGroup rgOpcao;
+    private ListView listView;
 
-    Cursor cursor;
-    LetraDAO dao;
-    ArrayList<Letra> lista = new ArrayList<Letra>();
+    private Cursor cursor;
+    private Letra letra;
+    private LetraDAO dao;
+    private ArrayList<Letra> lista = new ArrayList<Letra>();
+    ArrayAdapter<Letra> adaptador = null;
 
     private static final String TAG = "search_letra";
     private CustomAdapter customAdapter;
@@ -48,11 +52,12 @@ public class Search extends AppCompatActivity {
         edtPesquisar = (EditText)findViewById(R.id.edt_busca);
         rgOpcao = (RadioGroup)findViewById(R.id.rg_opcao_busca);
         btnPesquisar = (Button)findViewById(R.id.btnBuscar);
+        listView = (ListView)findViewById(R.id.listViewResultado);
 
         btnPesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //resultadoEscolha();
+               resultadoEscolha();
             }
         });
 
@@ -70,7 +75,7 @@ public class Search extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-   /* public void resultadoEscolha(){
+    public void resultadoEscolha(){
 
         if(edtPesquisar.length()== 0){
             AlertDialog.Builder mensagem = new AlertDialog.Builder(Search.this);
@@ -92,19 +97,22 @@ public class Search extends AppCompatActivity {
 
                     if (cursor.moveToFirst()) {
                         do {
-                            letra.setLetra_ID(cursor.getLong(cursor.getColumnIndex(Letra.KEY_ID)));
-                            letra.setNome_musica(cursor.getString(cursor.getColumnIndex(Letra.KEY_nome)));
-                            letra.setNome_cantor(cursor.getString(cursor.getColumnIndex(Letra.KEY_cantor)));
-                            letra.setLetra_musica(cursor.getString(cursor.getColumnIndex(Letra.KEY_letra)));
+                            letra.setId_musica(cursor.getLong(cursor.getColumnIndex("_id_musica")));
+                            letra.setNome_musica(cursor.getString(cursor.getColumnIndex("nome_musica")));
+                            letra.setCantor_musica(cursor.getString(cursor.getColumnIndex("cantor_musica")));
+                            letra.setLetra_musica(cursor.getString(cursor.getColumnIndex("letra_musica")));
                             lista.add(letra);
 
-                            Log.i(TAG, "Pesquisa: " + letra.getNome_musica()+"(" + letra.getNome_cantor()+")");
-
+                            customAdapter = new CustomAdapter(Search.this, lista);
+                            listView.setAdapter(customAdapter);
+                            Log.i(TAG, "Pesquisa: " + letra.getNome_musica() + "(" + letra.getCantor_musica() + ")");
                         } while (cursor.moveToNext());
-                        b.putSerializable("letras", lista);
+
+
+
+                        /*b.putSerializable("letras", lista);
                         intent.putExtras(b);
-                        startActivity(intent);
-                        lista.clear();
+                        startActivity(intent);*/
                     }
 
                     break;
@@ -116,6 +124,6 @@ public class Search extends AppCompatActivity {
                     break;
             }
         }
-    }*/
+    }
 
 }
