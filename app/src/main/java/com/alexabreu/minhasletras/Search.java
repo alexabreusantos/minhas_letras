@@ -101,13 +101,21 @@ public class Search extends AppCompatActivity {
                             letra.setNome_musica(cursor.getString(cursor.getColumnIndex("nome_musica")));
                             letra.setCantor_musica(cursor.getString(cursor.getColumnIndex("cantor_musica")));
                             letra.setLetra_musica(cursor.getString(cursor.getColumnIndex("letra_musica")));
-                            lista.add(letra);
+
+
+
+                            /*for(int i=0;i<lista.size();i++){
+
+                               // Log.i(TAG, "Pesquisa: " + lista.get(i).getNome_musica() + "(" + lista.get(i).getCantor_musica() + ")");
+
+                            }*/
 
                             customAdapter = new CustomAdapter(Search.this, lista);
                             listView.setAdapter(customAdapter);
-                            Log.i(TAG, "Pesquisa: " + letra.getNome_musica() + "(" + letra.getCantor_musica() + ")");
-                        } while (cursor.moveToNext());
 
+                        } while (cursor.moveToNext());
+                        lista.add(letra);
+                        Log.i(TAG, "Pesquisa: " + lista.size());
 
 
                         /*b.putSerializable("letras", lista);
