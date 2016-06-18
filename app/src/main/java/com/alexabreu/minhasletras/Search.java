@@ -35,7 +35,7 @@ public class Search extends AppCompatActivity {
     private Letra letra;
     private LetraDAO dao;
     private ArrayList<Letra> lista = new ArrayList<Letra>();
-    ArrayAdapter<Letra> adaptador = null;
+    private ArrayAdapter<Letra> adaptador;
 
     private static final String TAG = "search_letra";
     private CustomAdapter customAdapter;
@@ -70,7 +70,6 @@ public class Search extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-
         }
         return super.onOptionsItemSelected(item);
     }
@@ -89,41 +88,21 @@ public class Search extends AppCompatActivity {
 
             switch (rgOpcao.getCheckedRadioButtonId()) {
                 case R.id.rb_nome_musica:
+
                     dao = new LetraDAO(this);
                     Letra letra = new Letra();
-                    cursor = dao.getLetraListByNome(edtPesquisar.getText().toString());
+                    this.lista = dao.buscarPorNomeMusica(edtPesquisar.getText().toString());
+
+                    Log.i(TAG, "Pesquisa: " + lista.size());
+
+
                     Intent intent = new Intent(Search.this, ResultadoBusca.class);
-                    Bundle b =  new Bundle();
-
-                    if (cursor.moveToFirst()) {
-                        do {
-                            letra.setId_musica(cursor.getLong(cursor.getColumnIndex("_id_musica")));
-                            letra.setNome_musica(cursor.getString(cursor.getColumnIndex("nome_musica")));
-                            letra.setCantor_musica(cursor.getString(cursor.getColumnIndex("cantor_musica")));
-                            letra.setLetra_musica(cursor.getString(cursor.getColumnIndex("letra_musica")));
-
-
-
-                            /*for(int i=0;i<lista.size();i++){
-
-                               // Log.i(TAG, "Pesquisa: " + lista.get(i).getNome_musica() + "(" + lista.get(i).getCantor_musica() + ")");
-
-                            }*/
-
-                            customAdapter = new CustomAdapter(Search.this, lista);
-                            listView.setAdapter(customAdapter);
-
-                        } while (cursor.moveToNext());
-                        lista.add(letra);
-                        Log.i(TAG, "Pesquisa: " + lista.size());
-
-
-                        /*b.putSerializable("letras", lista);
-                        intent.putExtras(b);
-                        startActivity(intent);*/
-                    }
-
+                    Bundle bundle =  new Bundle();
+                    bundle.putSerializable("letras", lista);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                     break;
+
                 case R.id.rb_nome_cantor:
                     Toast.makeText(Search.this, "Busca por nome do cantor!", Toast.LENGTH_SHORT).show();
                     break;

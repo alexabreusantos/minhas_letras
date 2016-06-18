@@ -20,15 +20,10 @@ import java.util.Iterator;
 
 public class ResultadoBusca extends AppCompatActivity {
 
-    ListView lst_busca;
-    String resultado;
-    Cursor cursor;
-
-    private static final String TAG = "resultado_letra";
+    private ListView lst_busca;
     private CustomAdapter customAdapter;
-
-    ArrayList<Letra> lista = new ArrayList<Letra>();
-    ArrayAdapter<Letra> adaptador = null;
+    private static final String TAG = "resultado_letra";
+    private ArrayList<Letra> lista = new ArrayList<Letra>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +37,6 @@ public class ResultadoBusca extends AppCompatActivity {
         lista = (ArrayList<Letra>) getIntent().getSerializableExtra("letras");
         customAdapter = new CustomAdapter(ResultadoBusca.this, lista);
         lst_busca.setAdapter(customAdapter);
-
-        //lst_busca.setAdapter(customAdapter);
-        //customAdapter = new CustomAdapter(ResultadoBusca.this, cursor, 0);
-        /*Iterator it =  lista.iterator();
-        while(it.hasNext()){
-            Letra letra = (Letra)it.next();
-            Log.i(TAG, "Resultado: "+ letra.getNome_musica());
-        }*/
-
-       /*for(int i=0; i<lista.size(); i++) {
-
-           Log.i(TAG, "Resultado: "+lista.get(i).getNome_musica());
-        }*/
-
-        //Log.i(TAG, "Resultado: " + lista);
-
     }
 
     @Override
@@ -73,7 +52,6 @@ public class ResultadoBusca extends AppCompatActivity {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 finish();
-
                 return true;
 
         }

@@ -84,24 +84,24 @@ public class LetraDAO {
     }
 
     public ArrayList<Letra> buscarPorNomeMusica(String search) {
-        ArrayList<Letra> letras = new ArrayList<Letra>();
+        ArrayList<Letra> lista = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selectQuery =  "SELECT * FROM letras WHERE nome_musica LIKE '%" +search + "%' ";
-        Cursor c = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(selectQuery, null);
         try {
-            while (c.moveToNext()){
+            while (cursor.moveToNext()){
                 Letra letra = new Letra();
-                letra.setId_musica(c.getLong(c.getColumnIndex("_id_musica")));
-                letra.setNome_musica(c.getString(c.getColumnIndex("nome_musica")));
-                letra.setCantor_musica(c.getString(c.getColumnIndex("cantor_musica")));
-                letra.setLetra_musica(c.getString(c.getColumnIndex("letra_musica")));
-                letras.add(letra);
+                letra.setId_musica(cursor.getLong(0));
+                letra.setNome_musica(cursor.getString(1));
+                letra.setCantor_musica(cursor.getString(2));
+                letra.setLetra_musica(cursor.getString(3));
+                lista.add(letra);
             }
         }finally {
-            c.close();
+            cursor.close();
         }
         db.close();
-        return letras;
+        return lista;
     }
 
     public Cursor getLetraListByNome(String search) {
