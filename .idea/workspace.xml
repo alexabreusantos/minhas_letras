@@ -51,86 +51,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Search.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Search.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state vertical-scroll-proportion="2.160105">
+              <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
               <folding>
-                <element signature="e#1250#1257#0" expanded="true" />
-                <element signature="method#onCreate#0;class#Search#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#Search#0" expanded="false" />
                 <element signature="method#onClick#0;class#Search#0" expanded="false" />
                 <element signature="method#initViews#0;class#Search#0" expanded="false" />
-                <element signature="e#2825#2826#0" expanded="true" />
-                <element signature="e#2875#2876#0" expanded="true" />
                 <element signature="method#callClearErrors#0;class#Search#0" expanded="false" />
                 <element signature="method#clearErrorFields#0;class#Search#0" expanded="false" />
                 <element signature="method#validateFields#0;class#Search#0" expanded="false" />
                 <element signature="method#isEmptyFields#0;class#Search#0" expanded="false" />
-                <element signature="e#3793#3840#0" expanded="true" />
-                <element signature="e#4118#4155#0" expanded="true" />
+                <element signature="method#mensagemListaVazia#0;class#Search#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddLetra.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/AddLetra.java">
+      <file leaf-file-name="DianteTrono.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/diversas_letras/DianteTrono.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="17" selection-start-line="57" selection-start-column="16" selection-end-line="60" selection-end-column="17" />
-              <folding>
-                <element signature="method#initViews#0;class#AddLetra#0" expanded="false" />
-                <element signature="docComment;method#callClearErrors#0;class#AddLetra#0" expanded="false" />
-                <element signature="method#callClearErrors#0;class#AddLetra#0" expanded="false" />
-                <element signature="docComment;method#validateFields#0;class#AddLetra#0" expanded="false" />
-                <element signature="method#validateFields#0;class#AddLetra#0" expanded="false" />
-                <element signature="method#isEmptyFields#0;class#AddLetra#0" expanded="false" />
-                <element signature="e#4017#4064#0" expanded="true" />
-                <element signature="e#4262#4309#0" expanded="true" />
-                <element signature="e#4508#4555#0" expanded="true" />
-                <element signature="docComment;method#clearErrorFields#0;class#AddLetra#0" expanded="false" />
-                <element signature="method#clearErrorFields#0;class#AddLetra#0" expanded="false" />
-                <element signature="method#salvar#0;class#AddLetra#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="65" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
-              <folding>
-                <element signature="e#2343#3355#0" expanded="true" />
-                <element signature="e#3354#3355#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowLetra.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ShowLetra.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4219858">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <caret line="53" column="60" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="60" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_show_letra.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_show_letra.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -138,7 +83,30 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ResultadoBusca.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+              <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+              <folding>
+                <element signature="e#1633#2648#0" expanded="true" />
+                <element signature="e#2647#2648#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowLetra.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ShowLetra.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -1727,15 +1695,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/util/ListaLetrasListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/diversas_letras/FernandaBrum.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_letra.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/dao/LetraDAO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ResultadoBusca.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/AddLetra.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/EditLetra.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_show_letra.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ShowLetra.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/util/InserirLetra.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ResultadoBusca.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/dao/LetraDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java" />
       </list>
     </option>
   </component>
@@ -1771,9 +1740,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1794,46 +1762,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minhas_letras" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minhas_letras" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1877,9 +1805,66 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minhasletras" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minhas_letras" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minhasletras" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diversas_letras" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minhas_letras" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minhasletras" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -2070,15 +2055,14 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3101695" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3101695" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2098,6 +2082,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2117,7 +2102,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java</url>
-          <line>79</line>
+          <line>80</line>
           <properties class="com.alexabreu.minhasletras.Search" method="initViews" />
         </line-breakpoint>
       </breakpoints>
@@ -2129,21 +2114,90 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
-            <element signature="e#1250#1257#0" expanded="true" />
-            <element signature="method#onCreate#0;class#Search#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#Search#0" expanded="false" />
             <element signature="method#onClick#0;class#Search#0" expanded="false" />
             <element signature="method#initViews#0;class#Search#0" expanded="false" />
-            <element signature="e#2825#2826#0" expanded="true" />
-            <element signature="e#2875#2876#0" expanded="true" />
             <element signature="method#callClearErrors#0;class#Search#0" expanded="false" />
             <element signature="method#clearErrorFields#0;class#Search#0" expanded="false" />
             <element signature="method#validateFields#0;class#Search#0" expanded="false" />
             <element signature="method#isEmptyFields#0;class#Search#0" expanded="false" />
-            <element signature="e#3793#3840#0" expanded="true" />
-            <element signature="e#4118#4155#0" expanded="true" />
+            <element signature="method#mensagemListaVazia#0;class#Search#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/AddLetra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="17" selection-start-line="57" selection-start-column="16" selection-end-line="60" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#initViews#0;class#AddLetra#0" expanded="false" />
+            <element signature="e#2413#2414#0" expanded="false" />
+            <element signature="e#2463#2464#0" expanded="false" />
+            <element signature="docComment;method#callClearErrors#0;class#AddLetra#0" expanded="false" />
+            <element signature="method#callClearErrors#0;class#AddLetra#0" expanded="false" />
+            <element signature="docComment;method#validateFields#0;class#AddLetra#0" expanded="false" />
+            <element signature="method#validateFields#0;class#AddLetra#0" expanded="false" />
+            <element signature="method#isEmptyFields#0;class#AddLetra#0" expanded="false" />
+            <element signature="docComment;method#clearErrorFields#0;class#AddLetra#0" expanded="false" />
+            <element signature="method#clearErrorFields#0;class#AddLetra#0" expanded="false" />
+            <element signature="method#salvar#0;class#AddLetra#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="65" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ShowLetra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_show_letra.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ResultadoBusca.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding>
+            <element signature="e#1633#2648#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#onClick#0;class#Search#0" expanded="false" />
+            <element signature="method#initViews#0;class#Search#0" expanded="false" />
+            <element signature="method#callClearErrors#0;class#Search#0" expanded="false" />
+            <element signature="method#clearErrorFields#0;class#Search#0" expanded="false" />
+            <element signature="method#validateFields#0;class#Search#0" expanded="false" />
+            <element signature="method#isEmptyFields#0;class#Search#0" expanded="false" />
+            <element signature="method#mensagemListaVazia#0;class#Search#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2152,7 +2206,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1633#2648#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2169,8 +2226,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="109" column="69" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="69" />
           <folding>
+            <element signature="method#atualizar#0;class#LetraDAO#0" expanded="false" />
             <element signature="method#remover#0;class#LetraDAO#0" expanded="false" />
-            <element signature="method#listarTodos#0;class#LetraDAO#0" expanded="false" />
             <element signature="e#2950#2957#0" expanded="false" />
           </folding>
         </state>
@@ -2199,19 +2256,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/util/InserirLetra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/model/Letra.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3304721">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2282,7 +2330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24113475">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2291,26 +2338,6 @@
         <state vertical-scroll-proportion="0.39716312">
           <caret line="24" column="29" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ResultadoBusca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/dao/LetraDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="47" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="47" />
-          <folding>
-            <element signature="method#remover#0;class#LetraDAO#0" expanded="false" />
-            <element signature="method#listarTodos#0;class#LetraDAO#0" expanded="false" />
-            <element signature="e#2950#2957#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2357,15 +2384,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="17" selection-start-line="57" selection-start-column="16" selection-end-line="60" selection-end-column="17" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#initViews#0;class#AddLetra#0" expanded="false" />
+            <element signature="e#2413#2414#0" expanded="false" />
+            <element signature="e#2463#2464#0" expanded="false" />
             <element signature="docComment;method#callClearErrors#0;class#AddLetra#0" expanded="false" />
             <element signature="method#callClearErrors#0;class#AddLetra#0" expanded="false" />
             <element signature="docComment;method#validateFields#0;class#AddLetra#0" expanded="false" />
             <element signature="method#validateFields#0;class#AddLetra#0" expanded="false" />
             <element signature="method#isEmptyFields#0;class#AddLetra#0" expanded="false" />
-            <element signature="e#4017#4064#0" expanded="true" />
-            <element signature="e#4262#4309#0" expanded="true" />
-            <element signature="e#4508#4555#0" expanded="true" />
             <element signature="docComment;method#clearErrorFields#0;class#AddLetra#0" expanded="false" />
             <element signature="method#clearErrorFields#0;class#AddLetra#0" expanded="false" />
             <element signature="method#salvar#0;class#AddLetra#0" expanded="false" />
@@ -2378,47 +2405,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
           <folding>
-            <element signature="e#2999#3000#0" expanded="true" />
-            <element signature="e#3049#3050#0" expanded="true" />
+            <element signature="e#2999#3000#0" expanded="false" />
+            <element signature="e#3049#3050#0" expanded="false" />
             <element signature="docComment;method#callClearErrors#0;class#EditLetra#0" expanded="false" />
             <element signature="docComment;method#validateFields#0;class#EditLetra#0" expanded="false" />
-            <element signature="e#4602#4649#0" expanded="true" />
-            <element signature="e#4847#4894#0" expanded="true" />
-            <element signature="e#5093#5140#0" expanded="true" />
+            <element signature="e#4602#4649#0" expanded="false" />
+            <element signature="e#4847#4894#0" expanded="false" />
+            <element signature="e#5093#5140#0" expanded="false" />
             <element signature="docComment;method#clearErrorFields#0;class#EditLetra#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="e#1250#1257#0" expanded="true" />
-            <element signature="method#onCreate#0;class#Search#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#Search#0" expanded="false" />
-            <element signature="method#onClick#0;class#Search#0" expanded="false" />
-            <element signature="method#initViews#0;class#Search#0" expanded="false" />
-            <element signature="e#2825#2826#0" expanded="true" />
-            <element signature="e#2875#2876#0" expanded="true" />
-            <element signature="method#callClearErrors#0;class#Search#0" expanded="false" />
-            <element signature="method#clearErrorFields#0;class#Search#0" expanded="false" />
-            <element signature="method#validateFields#0;class#Search#0" expanded="false" />
-            <element signature="method#isEmptyFields#0;class#Search#0" expanded="false" />
-            <element signature="e#3793#3840#0" expanded="true" />
-            <element signature="e#4118#4155#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="65" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
-          <folding>
-            <element signature="e#2343#3355#0" expanded="true" />
-            <element signature="e#3354#3355#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2434,11 +2428,81 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="32" selection-start-line="31" selection-start-column="4" selection-end-line="34" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/util/InserirLetra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.964539">
+          <caret line="36" column="56" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ShowLetra.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4219858">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/diversas_letras/DianteTrono.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="60" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/dao/LetraDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2411348">
+          <caret line="127" column="37" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="37" />
+          <folding>
+            <element signature="method#atualizar#0;class#LetraDAO#0" expanded="false" />
+            <element signature="method#remover#0;class#LetraDAO#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/ResultadoBusca.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+          <folding>
+            <element signature="e#1633#2648#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alexabreu/minhasletras/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.160105">
+          <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
+          <folding>
+            <element signature="method#onClick#0;class#Search#0" expanded="false" />
+            <element signature="method#initViews#0;class#Search#0" expanded="false" />
+            <element signature="method#callClearErrors#0;class#Search#0" expanded="false" />
+            <element signature="method#clearErrorFields#0;class#Search#0" expanded="false" />
+            <element signature="method#validateFields#0;class#Search#0" expanded="false" />
+            <element signature="method#isEmptyFields#0;class#Search#0" expanded="false" />
+            <element signature="method#mensagemListaVazia#0;class#Search#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

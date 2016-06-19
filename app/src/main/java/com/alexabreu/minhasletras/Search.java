@@ -50,6 +50,7 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        setTitle("Pesquisar Letras");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         initViews();
@@ -135,26 +136,65 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
         else {
             switch (rgOpcao.getCheckedRadioButtonId()) {
                 case R.id.rb_nome_musica:
-
                     dao = new LetraDAO(this);
-                    Letra letra = new Letra();
                     this.lista = dao.buscarPorNomeMusica(pesquisa);
 
-                    Intent intent = new Intent(Search.this, ResultadoBusca.class);
-                    Bundle bundle =  new Bundle();
-                    bundle.putSerializable("letras", lista);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                    if(this.lista.size() == 0){
+                        mensagemListaVazia();
+                    }else{
+                        Intent it_nome = new Intent(Search.this, ResultadoBusca.class);
+                        Bundle bl_nome =  new Bundle();
+                        bl_nome.putSerializable("letras", lista);
+                        it_nome.putExtras(bl_nome);
+                        startActivity(it_nome);
+                        edtPesquisar.setText("");
+                    }
                     break;
 
                 case R.id.rb_nome_cantor:
-                    Toast.makeText(Search.this, "Busca por nome do cantor!", Toast.LENGTH_SHORT).show();
+                    dao = new LetraDAO(this);
+                    this.lista = dao.buscarPorNomeCantor(pesquisa);
+
+                    if(this.lista.size() == 0){
+                        mensagemListaVazia();
+                    }else{
+                        Intent it_cantor = new Intent(Search.this, ResultadoBusca.class);
+                        Bundle bl_cantor =  new Bundle();
+                        bl_cantor.putSerializable("letras", lista);
+                        it_cantor.putExtras(bl_cantor);
+                        startActivity(it_cantor);
+                        edtPesquisar.setText("");
+                    }
                     break;
+                
                 case R.id.rb_trecho:
-                    Toast.makeText(Search.this, "Busca por trecho da música!", Toast.LENGTH_SHORT).show();
+                    dao = new LetraDAO(this);
+                    this.lista = dao.buscarPorLetraMusica(pesquisa);
+
+                    if(this.lista.size() == 0){
+                       mensagemListaVazia();
+                    }else{
+                        Intent it_letra = new Intent(Search.this, ResultadoBusca.class);
+                        Bundle bl_letra =  new Bundle();
+                        bl_letra.putSerializable("letras", lista);
+                        it_letra.putExtras(bl_letra);
+                        startActivity(it_letra);
+                        edtPesquisar.setText("");
+                    }
                     break;
             }
         }
+    }
+
+    public void mensagemListaVazia(){
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(Search.this);
+        mensagem.setTitle("Atenção");
+        mensagem.setIcon(R.drawable.ic_warning_black_24dp);
+        mensagem.setMessage("Sua pesquisa não teve resultados!\nTente novamente!");
+        mensagem.setCancelable(true);
+        mensagem.setNeutralButton("OK", null);
+        mensagem.show();
+        edtPesquisar.setText("");
     }
 
 }

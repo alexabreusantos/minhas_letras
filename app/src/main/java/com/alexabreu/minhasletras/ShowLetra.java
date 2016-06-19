@@ -37,7 +37,7 @@ public class ShowLetra extends AppCompatActivity {
         String nome_cantor = nome + " - " + cantor;
         nome_musica.setText(nome_cantor);
         letra_musica.setText(letra);
-
+        setTitle(nome);
     }
 
     @Override

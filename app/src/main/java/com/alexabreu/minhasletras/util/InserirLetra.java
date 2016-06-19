@@ -28,7 +28,6 @@ public class InserirLetra extends AppCompatActivity {
 
         ArrayList<Letra> letras = new ArrayList<Letra>();
         Letra letra= new Letra();
-        Letra letra1= new Letra();
 
         letra.setNome_musica(FernandaBrum.nomeEspiritoSanto);
         letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
@@ -84,15 +83,15 @@ public class InserirLetra extends AppCompatActivity {
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraPrecisoTi);
 
-        letra1.setNome_musica(DianteTrono.nomeTeAgradeco);
-        letra1.setCantor_musica(DianteTrono.cantorDianteTrono);
-        letra1.setLetra_musica(DianteTrono.letraTeAgradeco);
+        letra.setNome_musica(DianteTrono.nomeTeAgradeco);
+        letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+        letra.setLetra_musica(DianteTrono.letraTeAgradeco);
         //letras.add(letra1);
 
         letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraVimParaAdorar);
-        //letras.add(letra);
+        dao.inserir(letra);
 
         Log.i(TAG, "Tamanho da lista adicionada: " + letra.toString().length() );
     }

@@ -28,10 +28,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
+
     private Long id_musica;
     private String nome_musica;
     private String cantor_musica;
     private String letra_musica;
+
     private String nomes_musica;
     private Cursor cursor;
     private Letra letra;
@@ -67,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
         if(listarTodos.isEmpty()){
             adicionarLetra();
         }
-
-       // Log.i(TAG, "Tamanho da lista: " + inserirLetra.addLetra().size());
 
         customAdapter = new CustomAdapter(this,listarTodos);
         listView = (ListView)findViewById(R.id.lstLetra);
