@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.ZoomControls;
 
 public class ShowLetra extends AppCompatActivity {
 
     private TextView nome_musica;
     private TextView letra_musica;
+    private ZoomControls zoom;
 
     private Long id;
     private String nome;
@@ -24,8 +28,34 @@ public class ShowLetra extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        ScrollView scrollable_contents = (ScrollView) findViewById(R.id.scrollableContents);
+        getLayoutInflater().inflate(R.layout.contents_show_letra, scrollable_contents);
+
         nome_musica = (TextView) findViewById(R.id.txtNome);
         letra_musica = (TextView) findViewById(R.id.txtLetra);
+        zoom = (ZoomControls) findViewById(R.id.zoom_letra);
+        zoom.setOnZoomInClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float x = letra_musica.getScaleX();
+                float y = letra_musica.getScaleY();
+
+                letra_musica.setScaleX((float) (x+1));
+                letra_musica.setScaleY((float) (y + 1));
+            }
+        });
+
+        zoom.setOnZoomOutClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float x = letra_musica.getScaleX();
+                float y = letra_musica.getScaleY();
+
+                letra_musica.setScaleX((float) (x-1));
+                letra_musica.setScaleY((float) (y-1));
+            }
+        });
+
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -34,8 +64,7 @@ public class ShowLetra extends AppCompatActivity {
         cantor = bundle.getString("CANTOR_SELECIONADO");
         letra = bundle.getString("LETRA_SELECIONADA");
 
-        String nome_cantor = nome + " - " + cantor;
-        nome_musica.setText(nome_cantor);
+        nome_musica.setText(cantor);
         letra_musica.setText(letra);
         setTitle(nome);
     }

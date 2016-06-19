@@ -166,7 +166,7 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
                         edtPesquisar.setText("");
                     }
                     break;
-                
+
                 case R.id.rb_trecho:
                     dao = new LetraDAO(this);
                     this.lista = dao.buscarPorLetraMusica(pesquisa);
