@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     private LetraDAO dao;
 
-    ProgressDialog barProgressDialog;
-    Handler updateBarHandler;
+    private ProgressDialog barProgressDialog;
+    private Handler updateBarHandler;
 
     int tamanho_lista = 0;
     int count = 0;

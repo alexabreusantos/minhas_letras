@@ -22,5 +22,7 @@
     <string name="radio_trecho_musica">Por algum trecho da letra</string>
     <string name="title_activity_resultado_busca">ResultadoBusca</string>
 
+    <string name="campo_obrigatorio">Campo obrigatório.</string>
+
 </resources>
 

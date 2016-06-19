@@ -2,9 +2,13 @@ package com.alexabreu.minhasletras;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,12 +28,13 @@ import com.alexabreu.minhasletras.util.CustomAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Search extends AppCompatActivity {
+public class Search extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnPesquisar;
     private EditText edtPesquisar;
     private RadioGroup rgOpcao;
     private ListView listView;
+    private Resources resources;
 
     private Cursor cursor;
     private Letra letra;
@@ -40,7 +45,6 @@ public class Search extends AppCompatActivity {
     private static final String TAG = "search_letra";
     private CustomAdapter customAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,19 +52,9 @@ public class Search extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        edtPesquisar = (EditText)findViewById(R.id.edt_busca);
+        initViews();
         rgOpcao = (RadioGroup)findViewById(R.id.rg_opcao_busca);
-        btnPesquisar = (Button)findViewById(R.id.btnBuscar);
         listView = (ListView)findViewById(R.id.listViewResultado);
-
-        btnPesquisar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               resultadoEscolha();
-            }
-        });
-
     }
 
     @Override
@@ -74,27 +68,77 @@ public class Search extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnBuscar) {
+            if (validateFields()) {
+                resultadoEscolha();
+            }
+        }
+    }
+
+    private void initViews() {
+        resources = getResources();
+
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                callClearErrors(s);
+            }
+        };
+
+        edtPesquisar = (EditText)findViewById(R.id.edt_busca);
+        edtPesquisar.addTextChangedListener(textWatcher);
+        btnPesquisar = (Button)findViewById(R.id.btnBuscar);
+        btnPesquisar.setOnClickListener(this);
+    }
+
+    private void callClearErrors(Editable s) {
+        if (!s.toString().isEmpty()) {
+            clearErrorFields(edtPesquisar);
+        }
+    }
+
+    private void clearErrorFields(EditText... editTexts) {
+        for (EditText editText : editTexts) {
+            editText.setError(null);
+        }
+    }
+
+    private boolean validateFields() {
+        String pesquisar = edtPesquisar.getText().toString().trim();
+        return (!isEmptyFields(pesquisar));
+    }
+
+    private boolean isEmptyFields(String pesquisa) {
+        if (TextUtils.isEmpty(pesquisa)) {
+            edtPesquisar.requestFocus(); //seta o foco para o campo user
+            edtPesquisar.setError(resources.getString(R.string.campo_obrigatorio));
+            return true;
+        }
+        return false;
+    }
+
     public void resultadoEscolha(){
-
-        if(edtPesquisar.length()== 0){
-            AlertDialog.Builder mensagem = new AlertDialog.Builder(Search.this);
-            mensagem.setTitle("Atenção");
-            mensagem.setIcon(R.drawable.ic_warning_black_24dp);
-            mensagem.setMessage("Por favor digite alguma coisa");
-            mensagem.setCancelable(true);
-            mensagem.setNeutralButton("OK", null);
-            mensagem.show();
-        } else {
-
+        String pesquisa = edtPesquisar.getText().toString();
+        if(pesquisa == null || pesquisa.equals("") || pesquisa.length() == 0 ){
+            edtPesquisar.setError(getString(R.string.campo_obrigatorio));
+        }
+        else {
             switch (rgOpcao.getCheckedRadioButtonId()) {
                 case R.id.rb_nome_musica:
 
                     dao = new LetraDAO(this);
                     Letra letra = new Letra();
-                    this.lista = dao.buscarPorNomeMusica(edtPesquisar.getText().toString());
-
-                    Log.i(TAG, "Pesquisa: " + lista.size());
-
+                    this.lista = dao.buscarPorNomeMusica(pesquisa);
 
                     Intent intent = new Intent(Search.this, ResultadoBusca.class);
                     Bundle bundle =  new Bundle();
