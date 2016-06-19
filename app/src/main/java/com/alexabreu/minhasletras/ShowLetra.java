@@ -8,13 +8,13 @@ import android.widget.TextView;
 
 public class ShowLetra extends AppCompatActivity {
 
-    TextView titulo;
-    TextView letra_musica;
+    private TextView nome_musica;
+    private TextView letra_musica;
 
-    Long id;
-    String nome;
-    String cantor;
-    String letra;
+    private Long id;
+    private String nome;
+    private String cantor;
+    private String letra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class ShowLetra extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        titulo = (TextView) findViewById(R.id.txtTitulo);
+        nome_musica = (TextView) findViewById(R.id.txtNome);
         letra_musica = (TextView) findViewById(R.id.txtLetra);
 
         Intent intent = getIntent();
@@ -35,7 +35,7 @@ public class ShowLetra extends AppCompatActivity {
         letra = bundle.getString("LETRA_SELECIONADA");
 
         String nome_cantor = nome + " - " + cantor;
-        titulo.setText(nome_cantor);
+        nome_musica.setText(nome_cantor);
         letra_musica.setText(letra);
 
     }

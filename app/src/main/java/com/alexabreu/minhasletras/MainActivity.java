@@ -13,7 +13,9 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alexabreu.minhasletras.dao.LetraDAO;
@@ -71,6 +73,27 @@ public class MainActivity extends AppCompatActivity {
         customAdapter = new CustomAdapter(this,listarTodos);
         listView = (ListView)findViewById(R.id.lstLetra);
         listView.setAdapter(customAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the cursor, positioned to the corresponding row in the result set
+                Letra letra = (Letra) listView.getItemAtPosition(position);
+
+                // Get the state's capital from this row in the database.
+                id_musica = letra.getId_musica();
+                nome_musica = letra.getNome_musica();
+                cantor_musica = letra.getCantor_musica();
+                letra_musica = letra.getLetra_musica();
+
+                Intent form = new Intent(MainActivity.this, ShowLetra.class);
+                form.putExtra("ID_SELECIONADO", id_musica);
+                form.putExtra("NOME_SELECIONADO", nome_musica);
+                form.putExtra("CANTOR_SELECIONADO", cantor_musica);
+                form.putExtra("LETRA_SELECIONADA", letra_musica);
+                startActivity(form);
+            }
+        });
 
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
