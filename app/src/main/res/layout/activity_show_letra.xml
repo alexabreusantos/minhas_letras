@@ -52,7 +52,8 @@
         android:layout_above="@id/footer"
         android:scrollbarThumbHorizontal="@color/listItem2"
         android:background="#000000"
-        android:layout_below="@id/header" >
+        android:layout_below="@id/header"
+        android:textAlignment="center">
 
         <!-- Inflate the contents of the ScrollView dynamicaly -->
 

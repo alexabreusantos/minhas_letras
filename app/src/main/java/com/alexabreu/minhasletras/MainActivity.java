@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get the cursor, positioned to the corresponding row in the result set
+
                 Letra letra = (Letra) listView.getItemAtPosition(position);
 
                 // Get the state's capital from this row in the database.

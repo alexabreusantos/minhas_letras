@@ -188,9 +188,9 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
 
     public void mensagemListaVazia(){
         AlertDialog.Builder mensagem = new AlertDialog.Builder(Search.this);
-        mensagem.setTitle("Atenção");
-        mensagem.setIcon(R.drawable.ic_warning_black_24dp);
-        mensagem.setMessage("Sua pesquisa não teve resultados!\nTente novamente!");
+        mensagem.setTitle("Nada encontrado");
+        mensagem.setIcon(R.drawable.ic_info_black_24dp);
+        mensagem.setMessage("Digite outro termo para pesquisar!");
         mensagem.setCancelable(true);
         mensagem.setNeutralButton("OK", null);
         mensagem.show();

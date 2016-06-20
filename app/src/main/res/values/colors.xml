@@ -8,5 +8,6 @@
     <color name="listItem2">#f2f9f2</color>
     <color name="listItemSelected">#74b53f</color>
     <color name="long_press">#fa02dd</color>
-
+    <drawable name="red_color">#fa032c</drawable>
+    <drawable name="blue_color">#061ef2</drawable>
 </resources>

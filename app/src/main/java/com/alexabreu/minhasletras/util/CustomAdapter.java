@@ -35,6 +35,9 @@ public class CustomAdapter extends ArrayAdapter<Letra> {
         this.letras = lista;
     }
 
+
+
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Letra letraPosicao = this.letras.get(position);
