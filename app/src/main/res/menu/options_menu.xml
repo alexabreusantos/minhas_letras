@@ -9,9 +9,15 @@
         app:showAsAction="collapseActionView|ifRoom" />
 
     <item
-        android:id="@+id/id_adicionar"
+        android:id="@+id/id_add"
         android:icon="@drawable/ic_add_white_24dp"
         android:title="@string/menu_add"
+        app:showAsAction="collapseActionView|ifRoom"/>
+
+    <item
+        android:id="@+id/id_favorits"
+        android:icon="@drawable/ic_star_white_24dp"
+        android:title="@string/menu_save"
         app:showAsAction="collapseActionView|ifRoom"/>
 
 </menu>

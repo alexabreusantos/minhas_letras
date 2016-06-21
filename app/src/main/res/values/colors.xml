@@ -6,7 +6,7 @@
     <color name="listItem1">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="listItem2">#f2f9f2</color>
-    <color name="listItemSelected">#74b53f</color>
+    <color name="listItemSelected">#fff373</color>
     <color name="long_press">#fa02dd</color>
     <drawable name="red_color">#fa032c</drawable>
     <drawable name="blue_color">#061ef2</drawable>
