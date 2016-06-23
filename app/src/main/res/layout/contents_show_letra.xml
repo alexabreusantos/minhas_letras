@@ -12,7 +12,7 @@
         android:layout_marginTop="22dp"
         android:text="Letra"
         android:textColor="#CCCCCC"
-        android:textSize="16sp"
+        android:textSize="16dp"
         android:id="@+id/txtLetra"
         android:textAlignment="center" />
 
