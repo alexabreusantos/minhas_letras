@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ZoomControls;
@@ -13,7 +14,8 @@ public class ShowLetra extends AppCompatActivity {
 
     private TextView nome_musica;
     private TextView letra_musica;
-    private ZoomControls zoom;
+    private ImageButton aumentar;
+    private ImageButton diminuir;
 
     private Long id;
     private String nome;
@@ -33,29 +35,22 @@ public class ShowLetra extends AppCompatActivity {
 
         nome_musica = (TextView) findViewById(R.id.txtNome);
         letra_musica = (TextView) findViewById(R.id.txtLetra);
-        zoom = (ZoomControls) findViewById(R.id.zoom_letra);
-        zoom.setOnZoomInClickListener(new View.OnClickListener() {
+        aumentar = (ImageButton) findViewById(R.id.imgAumentar);
+        diminuir = (ImageButton) findViewById(R.id.imgDiminuir);
+
+        aumentar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float x = letra_musica.getScaleX();
-                float y = letra_musica.getScaleY();
-
-                letra_musica.setScaleX((float) (x+1));
-                letra_musica.setScaleY((float) (y + 1));
+                letra_musica.setTextSize(20);
             }
         });
 
-        zoom.setOnZoomOutClickListener(new View.OnClickListener() {
+        diminuir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float x = letra_musica.getScaleX();
-                float y = letra_musica.getScaleY();
-
-                letra_musica.setScaleX((float) (x-1));
-                letra_musica.setScaleY((float) (y-1));
+                letra_musica.setTextSize(12);
             }
         });
-
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

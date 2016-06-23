@@ -10,4 +10,6 @@
     <color name="long_press">#fa02dd</color>
     <drawable name="red_color">#fa032c</drawable>
     <drawable name="blue_color">#061ef2</drawable>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

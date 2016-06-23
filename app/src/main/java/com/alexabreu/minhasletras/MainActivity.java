@@ -1,6 +1,8 @@
 package com.alexabreu.minhasletras;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.content.Intent;
 import android.database.SQLException;
 import android.support.v7.app.AlertDialog;
@@ -31,6 +33,8 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView letraListView;
+    private ProgressDialog progressDialog;
+    private Handler handler;
     private CustomAdapter customAdapter;
     private ArrayList<Letra> letras = new ArrayList<Letra>();
     private ArrayList<Long> ids = new ArrayList<Long>();
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         letraListView = (ListView) findViewById(R.id.lstLetra);
+        handler = new Handler();
 
         carregarLista();
         customAdapter = new CustomAdapter(this, R.layout.item,letras);
@@ -66,8 +71,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         if(letras.isEmpty()){
-            adicionarLetra();
+            instalarBanco();
         }
+
     }
 
     @Override
@@ -204,7 +210,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void adicionarLetra(){
         inserirLetra.addLetra();
-        //ProgressBar();
     }
 
     private void editarLetra() {
@@ -247,4 +252,69 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             dlg.show();
         }
     }
+
+    private void instalarBanco(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(letras_selecionadas);
+
+        alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                adicionarLetra();
+                //progressoBanco();
+                carregarLista();
+            }
+        });
+
+        alert.setNegativeButton("Não", null);
+        AlertDialog alertDialog = alert.create();
+        alertDialog.setTitle("Deseja instalar o banco?");
+        alertDialog.setIcon(R.drawable.ic_info_black_24dp);
+        alertDialog.show();
+    }
+
+    public void progressoBanco() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+
+        progressDialog.setTitle("Instalando Letras no Banco ...");
+        progressDialog.setMessage("Instalação em progresso ...");
+        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgress(0);
+        progressDialog.setMax(3);
+        progressDialog.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    // Here you should write your time consuming task...
+                    while (progressDialog.getProgress() <= progressDialog.getMax()) {
+
+                        Thread.sleep(2000);
+
+                        handler.post(new Runnable() {
+
+                            public void run() {
+
+                                progressDialog.incrementProgressBy(2);
+
+                            }
+
+                        });
+
+
+                        if (progressDialog.getProgress() == progressDialog.getMax()) {
+
+                            progressDialog.dismiss();
+
+                        }
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }).start();
+    }
+
 }
+

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class InserirLetra extends AppCompatActivity {
     String TAG = InserirLetra.class.getName().toString();
     LetraDAO dao;
+    ArrayList<Letra> letras;
 
     public InserirLetra(Context context) {
         dao = new LetraDAO(context);
@@ -26,7 +27,6 @@ public class InserirLetra extends AppCompatActivity {
 
     public void addLetra(){
 
-        ArrayList<Letra> letras = new ArrayList<Letra>();
         Letra letra= new Letra();
 
         letra.setNome_musica(FernandaBrum.nomeEspiritoSanto);
@@ -93,7 +93,32 @@ public class InserirLetra extends AppCompatActivity {
         letra.setLetra_musica(DianteTrono.letraVimParaAdorar);
         dao.inserir(letra);
 
-        Log.i(TAG, "Tamanho da lista adicionada: " + letra.toString().length() );
+    }
+
+    public ArrayList<Letra> tamanhoLista(){
+        letras = new ArrayList<Letra>();
+        Letra letra= new Letra();
+
+        letra.setNome_musica(FernandaBrum.nomeEspiritoSanto);
+        letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+        letra.setLetra_musica(FernandaBrum.letraEspiritoSanto);
+
+        letra.setNome_musica(FernandaBrum.nomeImpossivel);
+        letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+        letra.setLetra_musica(FernandaBrum.letraImpossivel);
+
+        letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
+        letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+        letra.setLetra_musica(DianteTrono.letraVimParaAdorar);
+
+        letras.add(letra);
+        dao.inserir(letra);
+        return letras;
+    }
+
+    public void letrasQtd(){
+        letras.size();
+        Log.i(TAG, "Tamanho: " + letras.size());
     }
 
 }
