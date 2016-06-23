@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class ShowLetra extends AppCompatActivity {
     private String nome;
     private String cantor;
     private String letra;
+    private  float tamanho_fonte = 18;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +43,16 @@ public class ShowLetra extends AppCompatActivity {
         aumentar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                letra_musica.setTextSize(20);
+                tamanho_fonte++;
+                letra_musica.setTextSize(tamanho_fonte);
             }
         });
 
         diminuir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                letra_musica.setTextSize(12);
+                tamanho_fonte--;
+                letra_musica.setTextSize(tamanho_fonte);
             }
         });
 
