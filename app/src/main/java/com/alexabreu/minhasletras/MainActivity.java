@@ -26,12 +26,14 @@ import com.alexabreu.minhasletras.util.CustomAdapter;
 import com.alexabreu.minhasletras.util.InserirLetra;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView letraListView;
     private CustomAdapter customAdapter;
     private ArrayList<Letra> letras = new ArrayList<Letra>();
+    private ArrayList<Long> ids = new ArrayList<Long>();
 
     private Long id_musica;
     private String nome_musica;
@@ -107,6 +109,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         cantor_musica = letra.getCantor_musica();
         letra_musica = letra.getLetra_musica();
 
+        ids.add(id_musica);
+
         if (hasCheckedItems && mActionMode == null)
             // there are some selected items, start the actionMode
             mActionMode = startActionMode(new ActionModeCallback());
@@ -120,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(customAdapter.getSelectedCount() > 1){
             letras_selecionadas = "Excluir as " + customAdapter.getSelectedCount() + " letras selecionadas?";
             mActionMode.getMenu().findItem(R.id.id_edit).setVisible(false);
+
         }else{
             letras_selecionadas = "Excluir a letra: " + letra.getNome_musica() + "?";
         }
@@ -175,8 +180,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             switch (item.getItemId()) {
                 case R.id.id_delete:
                     confirmarExcluir();
-                    // retrieve selected items and delete them out
-
                     mode.finish(); // Action picked, so close the CAB
                     return true;
 
@@ -221,18 +224,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     LetraDAO dao = new LetraDAO(MainActivity.this);
-                    dao.remover(id_musica);
-                    SparseBooleanArray selected = customAdapter.getSelectedIds();
-                    for (int i = (selected.size() - 1); i >= 0; i--) {
-                        if (selected.valueAt(i)) {
-                            Letra selectedItem = customAdapter.getItem(selected.keyAt(i));
-                            customAdapter.remove(selectedItem);
-                        }
+
+                    for(int i=0;i<ids.size();i++){
+                        dao.remover(ids.get(i));
+                        Log.i("TAG", "selecionado: " + ids.get(i));
                     }
-                    Log.i("TAG", "letra: "+ id_musica);
-
+                    ids.clear();
                     carregarLista();
-
                 }
             });
 
