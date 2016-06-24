@@ -22,7 +22,7 @@ public class ShowLetra extends AppCompatActivity {
     private String nome;
     private String cantor;
     private String letra;
-    private  float tamanho_fonte = 18;
+    private  float tamanho_fonte = 16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -39,7 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@color/colorPrimaryDark"
-            android:gravity="center">
+            android:gravity="center"
+            android:weightSum="1">
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -47,20 +48,20 @@
                 android:id="@+id/imgAumentar"
                 android:background="@drawable/ic_add_circle_outline_white_24dp" />
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/textView"
+                android:layout_weight="0.12"
                 android:visibility="invisible" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imgDiminuir"
-                android:background="@drawable/ic_remove_circle_outline_white_24dp"
-                android:baselineAlignBottom="false"
-                android:foregroundGravity="right" />
+                android:background="@drawable/ic_remove_circle_outline_white_24dp" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -75,7 +76,9 @@
         android:scrollbarThumbHorizontal="@color/listItem2"
         android:background="#000000"
         android:layout_below="@id/header"
-        android:textAlignment="center">
+        android:textAlignment="center"
+        android:fillViewport="false"
+        android:padding="3dp">
 
         <!-- Inflate the contents of the ScrollView dynamicaly -->
 
