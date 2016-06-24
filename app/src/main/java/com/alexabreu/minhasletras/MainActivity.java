@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ProgressDialog progressDialog;
     private Handler handler;
     private CustomAdapter customAdapter;
+    private Toast toast;
+    private long lastBackPressTime;
+
     private ArrayList<Letra> letras = new ArrayList<Letra>();
     private ArrayList<Long> ids = new ArrayList<Long>();
 
@@ -104,6 +107,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             onListItemSelect(position);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
+            toast = Toast.makeText(this, "Pressione voltar novamente para sair", Toast.LENGTH_LONG);
+            toast.show();
+            this.lastBackPressTime = System.currentTimeMillis();
+        } else {
+            if (toast != null) {
+                toast.cancel();
+            }
+            super.onBackPressed();
+        }
+    }
     private void onListItemSelect(int position) {
         customAdapter.toggleSelection(position);
         boolean hasCheckedItems = customAdapter.getSelectedCount() > 0;
