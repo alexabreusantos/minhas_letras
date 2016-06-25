@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private long lastBackPressTime;
 
     private ArrayList<Letra> letras = new ArrayList<Letra>();
+    private int qtd_letras;
     private ArrayList<Long> ids = new ArrayList<Long>();
 
     private Long id_musica;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         letraListView = (ListView) findViewById(R.id.lstLetra);
         handler = new Handler();
+
 
         carregarLista();
         customAdapter = new CustomAdapter(this, R.layout.item,letras);
@@ -277,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 adicionarLetra();
-                //progressoBanco();
+                progressoBanco();
                 carregarLista();
             }
         });
@@ -290,13 +292,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void progressoBanco() {
-        progressDialog = new ProgressDialog(MainActivity.this);
+        LetraDAO letraDAO = new LetraDAO(this);
+        this.letras = letraDAO.listarTodos();
 
+        progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setTitle("Instalando Letras no Banco ...");
         progressDialog.setMessage("Instalação em progresso ...");
         progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
         progressDialog.setProgress(0);
-        progressDialog.setMax(3);
+        progressDialog.setMax(this.letras.size());
         progressDialog.show();
 
         new Thread(new Runnable() {
