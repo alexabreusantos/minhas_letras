@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.content.Intent;
 import android.database.SQLException;
-import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
@@ -34,17 +33,14 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView letraListView;
-    private ProgressDialog pro_dialog;
+    private ProgressDialog progressDialog;
     private Handler handler;
-
-    private ProgressDialog p_dialog ;
-    private Handler h = new Handler();
-
     private CustomAdapter customAdapter;
     private Toast toast;
     private long lastBackPressTime;
 
     private ArrayList<Letra> letras = new ArrayList<Letra>();
+    private int qtd_letras;
     private ArrayList<Long> ids = new ArrayList<Long>();
 
     private Long id_musica;
@@ -54,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String letra_musica;
 
     private ActionMode mActionMode;
+    private LetraDAO dao;
     private Letra letra;
     InserirLetra inserirLetra = new InserirLetra(this);
 
@@ -62,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        letraListView = (ListView) findViewById(R.id.lstLetra);
         handler = new Handler();
 
-        letraListView = (ListView) findViewById(R.id.lstLetra);
 
         carregarLista();
         customAdapter = new CustomAdapter(this, R.layout.item,letras);
@@ -77,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return true;
             }
         });
+
+        if(letras.isEmpty()){
+            instalarBanco();
+        }
 
     }
 
@@ -231,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void editarLetra() {
         Intent i = new Intent(this, EditLetra.class);
-        i.putExtra("itemSelecionadoParaEdicao", letra);
+        i.putExtra("itemSelecionadoParaEdicao",letra);
         this.startActivity(i);
     }
 
@@ -269,5 +270,71 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             dlg.show();
         }
     }
+
+    private void instalarBanco(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(letras_selecionadas);
+
+        alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                adicionarLetra();
+                progressoBanco();
+                carregarLista();
+            }
+        });
+
+        alert.setNegativeButton("Não", null);
+        AlertDialog alertDialog = alert.create();
+        alertDialog.setTitle("Deseja instalar o banco?");
+        alertDialog.setIcon(R.drawable.ic_info_black_24dp);
+        alertDialog.show();
+    }
+
+    public void progressoBanco() {
+        LetraDAO letraDAO = new LetraDAO(this);
+        this.letras = letraDAO.listarTodos();
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("Instalando Letras no Banco ...");
+        progressDialog.setMessage("Instalação em progresso ...");
+        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgress(0);
+        progressDialog.setMax(this.letras.size());
+        progressDialog.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    // Here you should write your time consuming task...
+                    while (progressDialog.getProgress() <= progressDialog.getMax()) {
+
+                        Thread.sleep(2000);
+
+                        handler.post(new Runnable() {
+
+                            public void run() {
+
+                                progressDialog.incrementProgressBy(2);
+
+                            }
+
+                        });
+
+
+                        if (progressDialog.getProgress() == progressDialog.getMax()) {
+
+                            progressDialog.dismiss();
+
+                        }
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }).start();
+    }
+
 }
 

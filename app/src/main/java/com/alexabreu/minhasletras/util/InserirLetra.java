@@ -42,53 +42,51 @@ public class InserirLetra extends AppCompatActivity {
         letra.setNome_musica(FernandaBrum.nomeApenasUmToque);
         letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
         letra.setLetra_musica(FernandaBrum.letraApenasUmToque);
-        dao.inserir(letra);
+
 
         letra.setNome_musica(AlineBarros.nomeCorpoFamilia);
         letra.setCantor_musica(AlineBarros.cantorAlineBarros);
         letra.setLetra_musica(AlineBarros.letraCorpoFamilia);
-        dao.inserir(letra);
+
 
         letra.setNome_musica(AlineBarros.nomeRendidoEstou);
         letra.setCantor_musica(AlineBarros.cantorAlineBarros);
         letra.setLetra_musica(AlineBarros.letraRendidoEstou);
-        dao.inserir(letra);
+
 
         letra.setNome_musica(AlineBarros.nomeRessuscitaMe);
         letra.setCantor_musica(AlineBarros.cantorAlineBarros);
         letra.setLetra_musica(AlineBarros.letraRessuscitaMe);
-        dao.inserir(letra);
+
 
         letra.setNome_musica(Fernandinho.nomeFazChover);
         letra.setCantor_musica(Fernandinho.cantorFernandinho);
         letra.setLetra_musica(Fernandinho.letraFazChover);
-        dao.inserir(letra);
+
 
         letra.setNome_musica(Fernandinho.nomeTeusSonhos);
         letra.setCantor_musica(Fernandinho.cantorFernandinho);
         letra.setLetra_musica(Fernandinho.letraTeusSonhos);
-       // dao.inserir(letra);
+
 
         Letra aclame_dt = new Letra();
         aclame_dt.setNome_musica(DianteTrono.nomeAclame);
         aclame_dt.setCantor_musica(DianteTrono.cantorDianteTrono);
         aclame_dt.setLetra_musica(DianteTrono.letraAclame);
-        dao.inserir(letra);
+        //letras.add(aclame_dt);
 
         letra.setNome_musica(DianteTrono.nomeAguasPurificadoras);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraAguasPurificadoras);
-        dao.inserir(letra);
 
         letra.setNome_musica(DianteTrono.nomePrecisoTi);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraPrecisoTi);
-        dao.inserir(letra);
 
         letra.setNome_musica(DianteTrono.nomeTeAgradeco);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraTeAgradeco);
-        dao.inserir(letra);
+        //letras.add(letra1);
 
         letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
@@ -96,4 +94,31 @@ public class InserirLetra extends AppCompatActivity {
         dao.inserir(letra);
 
     }
+
+    public ArrayList<Letra> tamanhoLista(){
+        letras = new ArrayList<Letra>();
+        Letra letra= new Letra();
+
+        letra.setNome_musica(FernandaBrum.nomeEspiritoSanto);
+        letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+        letra.setLetra_musica(FernandaBrum.letraEspiritoSanto);
+
+        letra.setNome_musica(FernandaBrum.nomeImpossivel);
+        letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
+        letra.setLetra_musica(FernandaBrum.letraImpossivel);
+
+        letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
+        letra.setCantor_musica(DianteTrono.cantorDianteTrono);
+        letra.setLetra_musica(DianteTrono.letraVimParaAdorar);
+
+        letras.add(letra);
+        dao.inserir(letra);
+        return letras;
+    }
+
+    public void letrasQtd(){
+        letras.size();
+        Log.i(TAG, "Tamanho: " + letras.size());
+    }
+
 }
