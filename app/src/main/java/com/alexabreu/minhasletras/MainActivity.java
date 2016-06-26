@@ -23,6 +23,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.alexabreu.minhasletras.dao.LetraDAO;
+import com.alexabreu.minhasletras.diversas_letras.DianteTrono;
+import com.alexabreu.minhasletras.diversas_letras.FernandaBrum;
 import com.alexabreu.minhasletras.model.Letra;
 import com.alexabreu.minhasletras.util.CustomAdapter;
 import com.alexabreu.minhasletras.util.InserirLetra;
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         letraListView = (ListView) findViewById(R.id.lstLetra);
         handler = new Handler();
 
+        dao = new LetraDAO(this);
+        letras = dao.listarTodos();
 
         carregarLista();
         customAdapter = new CustomAdapter(this, R.layout.item,letras);
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         if(letras.isEmpty()){
-            instalarBanco();
+            adicionarLetra();
         }
 
     }
@@ -228,6 +232,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void adicionarLetra(){
         inserirLetra.addLetra();
+
+
     }
 
     private void editarLetra() {
@@ -271,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    private void instalarBanco(){
+   /* private void instalarBanco(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(letras_selecionadas);
 
@@ -334,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
             }
         }).start();
-    }
+    }*/
 
 }
 
