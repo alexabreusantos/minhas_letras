@@ -41,18 +41,22 @@ public class InserirLetra extends AppCompatActivity {
         letra.setNome_musica(FernandaBrum.nomeApenasUmToque);
         letra.setCantor_musica(FernandaBrum.cantorFernandaBrum);
         letra.setLetra_musica(FernandaBrum.letraApenasUmToque);
+        dao.inserir(letra);
 
         letra.setNome_musica(AlineBarros.nomeCorpoFamilia);
         letra.setCantor_musica(AlineBarros.cantorAlineBarros);
         letra.setLetra_musica(AlineBarros.letraCorpoFamilia);
+        dao.inserir(letra);
 
         letra.setNome_musica(AlineBarros.nomeRendidoEstou);
         letra.setCantor_musica(AlineBarros.cantorAlineBarros);
         letra.setLetra_musica(AlineBarros.letraRendidoEstou);
+        dao.inserir(letra);
 
         letra.setNome_musica(AlineBarros.nomeRessuscitaMe);
         letra.setCantor_musica(AlineBarros.cantorAlineBarros);
         letra.setLetra_musica(AlineBarros.letraRessuscitaMe);
+        dao.inserir(letra);
 
         letra.setNome_musica(Fernandinho.nomeFazChover);
         letra.setCantor_musica(Fernandinho.cantorFernandinho);
@@ -62,6 +66,7 @@ public class InserirLetra extends AppCompatActivity {
         letra.setNome_musica(Fernandinho.nomeTeusSonhos);
         letra.setCantor_musica(Fernandinho.cantorFernandinho);
         letra.setLetra_musica(Fernandinho.letraTeusSonhos);
+        dao.inserir(letra);
 
         letra.setNome_musica(DianteTrono.nomeAclame);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
@@ -71,14 +76,17 @@ public class InserirLetra extends AppCompatActivity {
         letra.setNome_musica(DianteTrono.nomeAguasPurificadoras);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraAguasPurificadoras);
+        dao.inserir(letra);
 
         letra.setNome_musica(DianteTrono.nomePrecisoTi);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraPrecisoTi);
+        dao.inserir(letra);
 
         letra.setNome_musica(DianteTrono.nomeTeAgradeco);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);
         letra.setLetra_musica(DianteTrono.letraTeAgradeco);
+        dao.inserir(letra);
 
         letra.setNome_musica(DianteTrono.nomeVimParaAdorar);
         letra.setCantor_musica(DianteTrono.cantorDianteTrono);

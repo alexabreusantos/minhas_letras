@@ -44,7 +44,7 @@ public class ResultadoBusca extends AppCompatActivity {
         lst_busca = (ListView)findViewById(R.id.lst_resultado);
 
         lista = (ArrayList<Letra>) getIntent().getSerializableExtra("letras");
-        //customAdapter = new CustomAdapter(ResultadoBusca.this, lista);
+        customAdapter = new CustomAdapter(this,R.layout.item_resultado,lista);
         lst_busca.setAdapter(customAdapter);
         lst_busca.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

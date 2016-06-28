@@ -23,6 +23,7 @@
     <string name="title_activity_resultado_busca">ResultadoBusca</string>
 
     <string name="campo_obrigatorio">Campo obrigatório.</string>
+    <string name="letra_existente">Esta letra já existe.</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

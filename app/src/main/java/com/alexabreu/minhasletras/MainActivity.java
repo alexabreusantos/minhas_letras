@@ -78,11 +78,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return true;
             }
         });
-
-        if(letras.isEmpty()){
-            adicionarLetra();
-        }
-
     }
 
     @Override
@@ -230,12 +225,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    private void adicionarLetra(){
-        inserirLetra.addLetra();
-
-
-    }
-
     private void editarLetra() {
         Intent i = new Intent(this, EditLetra.class);
         i.putExtra("itemSelecionadoParaEdicao",letra);
@@ -276,71 +265,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             dlg.show();
         }
     }
-
-   /* private void instalarBanco(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage(letras_selecionadas);
-
-        alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                adicionarLetra();
-                progressoBanco();
-                carregarLista();
-            }
-        });
-
-        alert.setNegativeButton("Não", null);
-        AlertDialog alertDialog = alert.create();
-        alertDialog.setTitle("Deseja instalar o banco?");
-        alertDialog.setIcon(R.drawable.ic_info_black_24dp);
-        alertDialog.show();
-    }
-
-    public void progressoBanco() {
-        LetraDAO letraDAO = new LetraDAO(this);
-        this.letras = letraDAO.listarTodos();
-
-        progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setTitle("Instalando Letras no Banco ...");
-        progressDialog.setMessage("Instalação em progresso ...");
-        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
-        progressDialog.setProgress(0);
-        progressDialog.setMax(this.letras.size());
-        progressDialog.show();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-
-                    // Here you should write your time consuming task...
-                    while (progressDialog.getProgress() <= progressDialog.getMax()) {
-
-                        Thread.sleep(2000);
-
-                        handler.post(new Runnable() {
-
-                            public void run() {
-
-                                progressDialog.incrementProgressBy(2);
-
-                            }
-
-                        });
-
-
-                        if (progressDialog.getProgress() == progressDialog.getMax()) {
-
-                            progressDialog.dismiss();
-
-                        }
-                    }
-                } catch (Exception e) {
-                }
-            }
-        }).start();
-    }*/
-
 }
 

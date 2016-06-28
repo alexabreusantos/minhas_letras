@@ -3,16 +3,11 @@ package com.alexabreu.minhasletras.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.alexabreu.minhasletras.helper.DBHelper;
 import com.alexabreu.minhasletras.model.Letra;
 
 import java.util.ArrayList;
-import java.util.List;
 /**
  * Created by alexd on 08/06/2016.
  */
@@ -29,7 +24,6 @@ public class LetraDAO {
     }
 
     public void inserir(Letra letra) {
-
         //Open connection to write data
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -40,6 +34,43 @@ public class LetraDAO {
         // Inserting Row
         long id_letra = db.insert(nome_tabela, null, values);
         db.close(); // Closing database connection
+    }
+
+    public Letra getLetra(String nome, String cantor){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery = "SELECT nome_musica FROM "+nome_tabela+ " WHERE nome_musica="+"'"+parametro+"'";
+        Cursor cursor = db.rawQuery()
+    }
+
+    public String verificarNome(String parametro){
+        String selectQuery = "SELECT nome_musica FROM "+nome_tabela+ " WHERE nome_musica="+"'"+parametro+"'";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String nome;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        try {
+            cursor.moveToFirst();
+            nome = cursor.getString(cursor.getColumnIndex("nome_musica"));
+        }finally {
+            cursor.close();
+        }
+        db.close();
+
+        return nome;
+    }
+
+    public String verificarCantor(String parametro){
+        String selectQuery = "SELECT cantor_musica FROM "+nome_tabela+ " WHERE cantor_musica="+"'"+parametro+"'";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        String cantor;
+        try {
+            cursor.moveToFirst();
+            cantor = cursor.getString(cursor.getColumnIndex("cantor_musica"));
+        }finally {
+            cursor.close();
+        }
+        db.close();
+        return cantor;
     }
 
     public boolean atualizar(String id, String nome, String cantor, String letra){
@@ -66,7 +97,7 @@ public class LetraDAO {
     public ArrayList<Letra> listarTodos() {
         ArrayList<Letra> letras = new ArrayList<Letra>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor c = db.query(nome_tabela, null, null, null, null, null, "nome_musica ASC");
+        Cursor c = db.query(nome_tabela, null, null, null, null, null, "nome_musica COLLATE LOCALIZED ASC");
 
         try {
             while (c.moveToNext()){
@@ -150,7 +181,5 @@ public class LetraDAO {
     public String obterNomeMusica(Letra letra){
         return letra.getNome_musica();
     }
-
-
 
 }

@@ -56,8 +56,7 @@ public class AddLetra extends AppCompatActivity {
 
             case R.id.id_save:
                 if (validateFields()) {
-                    salvar();
-                    finish();
+                    verficarNome();
                 }
                 break;
         }
@@ -101,8 +100,7 @@ public class AddLetra extends AppCompatActivity {
         }
     }
     /**
-     * Efetua a validação dos campos.Nesse caso, valida se os campos não estão vazios e se tem
-     * tamanho permitido.
+     * Efetua a validação dos campos.Nesse caso, valida se os campos não estão vazios
      * Nesse método você poderia colocar outros tipos de validações de acordo com a sua necessidade.
      *
      * @return boolean que indica se os campos foram validados com sucesso ou não
@@ -141,11 +139,25 @@ public class AddLetra extends AppCompatActivity {
         }
     }
 
+    private void verficarNome(){
+        LetraDAO letraDAO = new LetraDAO(this);
+        String nome = nome_musica.getText().toString();
+        String cantor = nome_cantor.getText().toString();
+        String busca_nome = letraDAO.verificarNome(nome);
+
+        if (nome == busca_nome ){
+            salvar();
+        }else {
+            Toast.makeText(this, "Já existe.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void salvar(){
         Letra letra = new Letra();
         LetraDAO letraDAO = new LetraDAO(this);
 
         try{
+
             letra.setNome_musica(nome_musica.getText().toString());
             letra.setCantor_musica(nome_cantor.getText().toString());
             letra.setLetra_musica(letra_musica.getText().toString());

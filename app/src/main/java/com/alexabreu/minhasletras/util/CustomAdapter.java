@@ -25,11 +25,11 @@ public class CustomAdapter extends ArrayAdapter<Letra> {
     ArrayList<Letra> Letras;
     private SparseBooleanArray mSelectedItemsIds;
 
-    public CustomAdapter(Activity context, int resId, ArrayList<Letra> Letras) {
-        super(context, resId, Letras);
+    public CustomAdapter(Activity context, int resId, ArrayList<Letra> letras) {
+        super(context, resId, letras);
         mSelectedItemsIds = new SparseBooleanArray();
         this.context = context;
-        this.Letras = Letras;
+        this.Letras = letras;
     }
 
     private class ViewHolder {

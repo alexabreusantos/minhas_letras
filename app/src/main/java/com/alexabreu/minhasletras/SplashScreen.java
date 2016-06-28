@@ -80,7 +80,7 @@ public class SplashScreen extends Activity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     adicionarLetra();
-                    time();
+                    timer();
                 }
             });
 
@@ -115,8 +115,7 @@ public class SplashScreen extends Activity {
         handler.sendEmptyMessage(0);
     }
 
-    private void time(){
-
+    private void timer(){
         LetraDAO letraDAO = new LetraDAO(SplashScreen.this);
         letras = letraDAO.listarTodos();
         MAX_PROGRESS = letras.size();

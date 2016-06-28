@@ -55,7 +55,6 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         initViews();
         rgOpcao = (RadioGroup)findViewById(R.id.rg_opcao_busca);
-        listView = (ListView)findViewById(R.id.listViewResultado);
     }
 
     @Override
@@ -172,7 +171,7 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
                     this.lista = dao.buscarPorLetraMusica(pesquisa);
 
                     if(this.lista.size() == 0){
-                       mensagemListaVazia();
+                        mensagemListaVazia();
                     }else{
                         Intent it_letra = new Intent(Search.this, ResultadoBusca.class);
                         Bundle bl_letra =  new Bundle();

@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.alexabreu.minhasletras.model.Letra;
 
+import java.util.Locale;
+
 public class DBHelper  extends SQLiteOpenHelper {
 
     private static final int VERSAO_BANCO = 1;
@@ -19,7 +21,6 @@ public class DBHelper  extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //All necessary tables you like to create will create here
 
         String CREATE_TABLE_LETRA = "CREATE TABLE letras ("
                 + "_id_musica INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -27,6 +28,7 @@ public class DBHelper  extends SQLiteOpenHelper {
                 + "cantor_musica TEXT, "
                 + "letra_musica TEXT )";
 
+        db.setLocale(Locale.getDefault());
         db.execSQL(CREATE_TABLE_LETRA);
     }
 
