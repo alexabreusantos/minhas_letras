@@ -56,7 +56,7 @@ public class AddLetra extends AppCompatActivity {
 
             case R.id.id_save:
                 if (validateFields()) {
-                    verficarNome();
+                    save();
                 }
                 break;
         }
@@ -139,16 +139,31 @@ public class AddLetra extends AppCompatActivity {
         }
     }
 
-    private void verficarNome(){
+    private void save(){
+        Letra letra = new Letra();
         LetraDAO letraDAO = new LetraDAO(this);
+
         String nome = nome_musica.getText().toString();
         String cantor = nome_cantor.getText().toString();
-        String busca_nome = letraDAO.verificarNome(nome);
+        String lmusica = letra_musica.getText().toString();
 
-        if (nome == busca_nome ){
-            salvar();
-        }else {
-            Toast.makeText(this, "Já existe.", Toast.LENGTH_SHORT).show();
+        letra.setNome_musica(nome);
+        letra.setCantor_musica(cantor);
+        letra.setLetra_musica(lmusica);
+
+        if (!letraDAO.checkIFExistis(nome, cantor, lmusica)){
+            Long code = letraDAO.insert(letra);
+            if (code == -1) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Ocorreu um erro, não foi possível inserir o seu usuário", Toast.LENGTH_LONG);
+                toast.show();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Usuário adicionado com sucesso!", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Não é possível inserir esse Usuário, pois ele já existe", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 

@@ -36,26 +36,47 @@ public class LetraDAO {
         db.close(); // Closing database connection
     }
 
-    public Letra getLetra(String nome, String cantor){
+    public Long insert(Letra letra){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("nome_musica", letra.getNome_musica());
+        values.put("cantor_musica",letra.getCantor_musica());
+        values.put("letra_musica", letra.getLetra_musica());
+
+        Long code = db.insert(nome_tabela, null, values);
+        db.close();
+        return code;
+    }
+
+    public boolean checkIFExistis(String nome, String cantor, String letra){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String selectQuery = "SELECT nome_musica FROM "+nome_tabela+ " WHERE nome_musica="+"'"+parametro+"'";
-        Cursor cursor = db.rawQuery()
+        Cursor cursor = db.rawQuery("select * from " + nome_tabela + " where nome_musica = ? and cantor_musica =? and letra_musica = ? ",
+                new String[]{nome, cantor, letra});
+
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     public String verificarNome(String parametro){
         String selectQuery = "SELECT nome_musica FROM "+nome_tabela+ " WHERE nome_musica="+"'"+parametro+"'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String nome;
+        String nomeString;
         Cursor cursor = db.rawQuery(selectQuery, null);
         try {
             cursor.moveToFirst();
-            nome = cursor.getString(cursor.getColumnIndex("nome_musica"));
+            nomeString = cursor.getString(cursor.getColumnIndex("nome_musica"));
         }finally {
             cursor.close();
         }
         db.close();
 
-        return nome;
+        return nomeString;
     }
 
     public String verificarCantor(String parametro){
