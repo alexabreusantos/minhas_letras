@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import com.alexabreu.minhasletras.dao.LetraDAO;
@@ -47,7 +48,8 @@ public class SplashScreen extends Activity {
                 super.handleMessage(msg);
                 if (progress >= MAX_PROGRESS) {
                     pro_dialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Dados atualizados com sucesso", Toast.LENGTH_SHORT).show();
+                    Toast toast = Toast.makeText(getApplicationContext(), "Dados atualizados com sucesso", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                 } else {
                     progress++;
                     pro_dialog.incrementProgressBy(1);
@@ -88,7 +90,9 @@ public class SplashScreen extends Activity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
-                    Toast.makeText(getApplicationContext(), "Nenhuma letra a ser exibida", Toast.LENGTH_SHORT).show();
+                    Toast toast =  Toast.makeText(getApplicationContext(), "Nenhuma letra a ser exibida", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
                     Intent openMainActivity = new Intent(SplashScreen.this, MainActivity.class);
                     startActivity(openMainActivity);
                 }
@@ -120,7 +124,6 @@ public class SplashScreen extends Activity {
         letras = letraDAO.listarTodos();
         MAX_PROGRESS = letras.size();
 
-        Log.i("TAG", "tamanho: "+ MAX_PROGRESS);
         carregarBanco();
         Thread timer = new Thread() {
             public void run() {

@@ -154,15 +154,16 @@ public class AddLetra extends AppCompatActivity {
         if (!letraDAO.checkIFExistis(nome, cantor, lmusica)){
             Long code = letraDAO.insert(letra);
             if (code == -1) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Ocorreu um erro, não foi possível inserir o seu usuário", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "Ocorreu um erro, não foi possível adicionar a letra", Toast.LENGTH_LONG);
                 toast.show();
             } else {
-                Toast toast = Toast.makeText(getApplicationContext(), "Usuário adicionado com sucesso!", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "Letra adicionada com sucesso!", Toast.LENGTH_LONG);
                 toast.show();
+                finish();
             }
         }
         else{
-            Toast toast = Toast.makeText(getApplicationContext(), "Não é possível inserir esse Usuário, pois ele já existe", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), "Não é possível adicionar, letra existente!", Toast.LENGTH_LONG);
             toast.show();
         }
     }
