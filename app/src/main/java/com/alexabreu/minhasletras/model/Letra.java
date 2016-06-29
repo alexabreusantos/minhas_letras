@@ -9,6 +9,10 @@ public class Letra  implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
+    public Letra(){
+        super();
+    }
+
     private Long id_musica;
     private String nome_musica;
     private String cantor_musica;
